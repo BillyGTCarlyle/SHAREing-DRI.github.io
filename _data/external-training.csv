@@ -1,28 +1,46 @@
-title,organisation,format,tags,url
-Message-Passing with MPI,EPCC/ARCHER2,Online (self-service),"Parallelism, MPI",https://www.archer2.ac.uk/training/courses/210000-mpi-self-service/
-Shared Memory Programming with OpenMP,EPCC/ARCHER2,Online (self-service),"Parallelism, OpenMP",https://www.archer2.ac.uk/training/courses/210000-openmp-self-service/
-Intermediate Modern Fortran,EPCC/ARCHER2,Online,"Programming languages, Fortran",https://www.archer2.ac.uk/training/courses/index.html?dev=0&test=0&gapi=0&db=0&od=0&gh=0&gl=0&tr=0&browser=0&picker=0&mode=device&export=https%3A%2F%2Fconvert.diagrams.net%2Fnode%2Fexport&disableUpdate=0&enableSpellCheck=0&enableStoreBkp=1&isGoogleFontsEnabled=0&appLang=en-US#intermediate-modern-fortran
-Modern C++ for Computational Scientists,EPCC/ARCHER2,Online,"Programming languages, C++",https://www.archer2.ac.uk/training/courses/index.html?dev=0&test=0&gapi=0&db=0&od=0&gh=0&gl=0&tr=0&browser=0&picker=0&mode=device&export=https%3A%2F%2Fconvert.diagrams.net%2Fnode%2Fexport&disableUpdate=0&enableSpellCheck=0&enableStoreBkp=1&isGoogleFontsEnabled=0&appLang=en-US#modern-c-for-computational-scientists
-Efficient Parallel IO,EPCC/ARCHER2,Online,"Parallelism, I/O",https://www.archer2.ac.uk/training/courses/index.html?dev=0&test=0&gapi=0&db=0&od=0&gh=0&gl=0&tr=0&browser=0&picker=0&mode=device&export=https%3A%2F%2Fconvert.diagrams.net%2Fnode%2Fexport&disableUpdate=0&enableSpellCheck=0&enableStoreBkp=1&isGoogleFontsEnabled=0&appLang=en-US#efficient-parallel-io
-Advanced MPI,EPCC/ARCHER2,Online,"Parallelism, MPI",https://www.archer2.ac.uk/training/courses/index.html?dev=0&test=0&gapi=0&db=0&od=0&gh=0&gl=0&tr=0&browser=0&picker=0&mode=device&export=https%3A%2F%2Fconvert.diagrams.net%2Fnode%2Fexport&disableUpdate=0&enableSpellCheck=0&enableStoreBkp=1&isGoogleFontsEnabled=0&appLang=en-US#advanced-mpi
-Advanced OpenMP,EPCC/ARCHER2,Online,"Parallel-practice, OpenMP",https://www.archer2.ac.uk/training/courses/index.html?dev=0&test=0&gapi=0&db=0&od=0&gh=0&gl=0&tr=0&browser=0&picker=0&mode=device&export=https%3A%2F%2Fconvert.diagrams.net%2Fnode%2Fexport&disableUpdate=0&enableSpellCheck=0&enableStoreBkp=1&isGoogleFontsEnabled=0&appLang=en-US#advanced-openmp
-Single Node Performance Optimisation,EPCC/ARCHER2,Online,"Parallel-practice, OpenMP, Performance",https://www.archer2.ac.uk/training/courses/index.html?dev=0&test=0&gapi=0&db=0&od=0&gh=0&gl=0&tr=0&browser=0&picker=0&mode=device&export=https%3A%2F%2Fconvert.diagrams.net%2Fnode%2Fexport&disableUpdate=0&enableSpellCheck=0&enableStoreBkp=1&isGoogleFontsEnabled=0&appLang=en-US#single-node-performance-optimisation
-Core-Level Performance Engineering,NHR@FAU,Upcoming,"Parallel-practice, Performance",https://hpc.fau.de/teaching/tutorials-and-courses/#core-level-performance-engineering
-Node-Level Performance Engineering,NHR@FAU,Upcoming,"Parallel-practice, OpenMP, Performance",https://hpc.fau.de/teaching/tutorials-and-courses/#node-level-performance-engineering
-Introduction to the LIKWID Tool Suite,NHR@FAU,Online,"Parallel-practice, Tools",https://hpc.fau.de/teaching/tutorials-and-courses/#introduction-to-the-likwid-tool-suite
-GPU Performance Engineering,NHR@FAU,Upcoming,"Parallel-practice, GPU, Performance",https://hpc.fau.de/teaching/tutorials-and-courses/#gpu-performance-engineering
-NHR Perflab Seminar,NHR@FAU,Online,"Seminar, Community",https://hpc.fau.de/research/nhr-perflab-seminar-series/
-User and Developer Perspectives on Parallel I/O,NHR@GWDG,Online,"Parallelism, I/O",https://academy.gwdg.de/p/event.xhtml?id=6916eca65067a75055a4c0d1
-Deep Dive into Containers,NHR@GWDG,Online,"Parallel-practice, Containers",https://academy.gwdg.de/p/event.xhtml?id=6916faa15067a75055a4c0d7
+title,organisation,format,tags,dates,location,url
+
+
+NHR Perflab Seminar,NHR@FAU,Other,"Seminar, Community",none,none,https://hpc.fau.de/research/nhr-perflab-seminar-series/
+Introduction to CUDA C/C++,NHR@FAU,Scheduled (online),"CUDA, C/C++",3-4 September 2026,Online,https://hpc.fau.de/teaching/tutorials-and-courses/gpu-programming/cuda/
+Scaling CUDA-Accelerated Applications,NHR@FAU,Scheduled (online),"CUDA",7-9 September 2026,Online,https://hpc.fau.de/teaching/tutorials-and-courses/gpu-programming/scaling-cuda/
+C++ for Beginners,NHR@FAU,Scheduled (online),"C++",17-18 September 2026,Online,https://hpc.fau.de/teaching/tutorials-and-courses/software-engineering/cpp-beginner/
+GPU Performance Engineering,NHR@FAU,Scheduled (online),"GPU",28-30 September 2026,Online,https://hpc.fau.de/teaching/tutorials-and-courses/gpu-programming/gpu-performance-engineering/
+Core-Level Performance Engineering,NHR@FAU,Scheduled (online),"Core-level",5 October 2026,Online,https://hpc.fau.de/teaching/tutorials-and-courses/performance-engineering/clpe/
+Modern C++ Software Design,NHR@FAU,Scheduled (online),"C++",7-9 October 2026,Online,https://hpc.fau.de/teaching/tutorials-and-courses/software-engineering/cpp-sw-design/
+Fundamentals of Accelerated Computing with Modern CUDA C++,NHR@FAU,Scheduled (online),"CUDA,C++",27-29 October 2026,Online,https://hpc.fau.de/teaching/tutorials-and-courses/gpu-programming/dli-modern-cuda/
+Introduction to Git,NHR@FAU,Scheduled (online),"Git",2-3 November 2026,Online,https://hpc.fau.de/teaching/tutorials-and-courses/software-engineering/git-beginner/
+Git for Advanced Users,NHR@FAU,Scheduled (online),"Git",4-5 November 2026,Online,https://hpc.fau.de/teaching/tutorials-and-courses/software-engineering/git-advanced/
+Choosing GPU Programming Approaches,NHR@FAU,Scheduled (online),"GPU",9-10 November 2026,Online,https://hpc.fau.de/teaching/tutorials-and-courses/gpu-programming/gpu-approaches/
+Node-Level Performance Engineering,NHR@FAU,Scheduled (online),"GPU",1-3 December 2026,Online,https://hpc.fau.de/teaching/tutorials-and-courses/performance-engineering/nlpe/
+
+
 Using Jupyter Notebooks on HPC,NHR@GWDG,Online,,https://academy.gwdg.de/p/event.xhtml?id=69f72823e3e2557f1b42c63e
-Ansys on Cluster and Post-Processing of Simulation Results,NHR@GWDG,Online,User-specific,https://academy.gwdg.de/p/event.xhtml?id=69f72bc8e3e2557f1b42c646
-Performance Engineering in ML Workloads Using Score-P and Vampir,NHR@GWDG,Online,"Parallel-practice, ML",https://academy.gwdg.de/p/event.xhtml?id=69f731fbe3e2557f1b42c653
-HPC Cafe,NHR@KIT,Online,"Seminar, Community",https://www.nhr.kit.edu/events.php/event/60386#calendar_top
-HPC Tuning and Analysis,NHR@PC2,Online,Parallel-practice,https://pc2.uni-paderborn.de/training
-Introduction to Julia for High Performance Computing,NHR@PC2,Online,Julia,https://events.uni-paderborn.de/event/1052/
-High-Performance Scientific Computing in C++ ,JSC,Online,C++,https://www.fz-juelich.de/en/jsc/news/events/training-courses/training-courses-2026/hpc-cplusplus
-Parallel I/O and Portable Data Formats,JSC,Online,"Parallelism, I/O",https://www.fz-juelich.de/en/jsc/news/events/training-courses/training-courses-2026/parallel-io
-Directive-based GPU Programming with OpenACC,JSC,Online,"Parallelism, GPU, OpenACC",https://www.fz-juelich.de/en/jsc/news/events/training-courses/training-courses-2026/gpu-openacc
-Modern C++ Software Design (Advanced) ,HLRS,Hybrid,C++,https://www.hlrs.de/training/2026/cpp4
-Elements of Supercomputing,CSC,Online,"Parallelism, intro to HPC",https://research.csc.fi/training/elements-of-supercomputing/
-Containers in Supercomputing Environment,CSC,Online,"Parallel-practice, Containers",https://research.csc.fi/training/containers-in-supercomputing-environment-2/
+Ansys on Cluster and Post-Processing of Simulation Results,NHR@GWDG,Scheduled (online),User-specific,5 October 2026,Online,https://academy.gwdg.de/p/event.xhtml?id=69f72bc8e3e2557f1b42c646
+
+HPC Cafe,NHR@KIT,Other,"Seminar, Community",none,none,https://www.nhr.kit.edu/events.php/event/60386#calendar_top
+
+HPC Tuning and Analysis,NHR@PC2,Online (self-service),Parallel-practice,none,none,https://www.youtube.com/playlist?list=PLKNFQamVSA_v31b3POlSMRroRe52TGN-q
+
+High-Performance Scientific Computing in C++ ,JSC,Scheduled (online),"C++",12-15 October 2026,Online,https://www.fz-juelich.de/en/jsc/news/events/training-courses/training-courses-2026/hpc-cplusplus
+Parallel I/O and Portable Data Formats,JSC,Scheduled (online),"Parallelism, I/O",26-28 October 2026,Online,https://www.fz-juelich.de/en/jsc/news/events/training-courses/training-courses-2026/parallel-io
+Directive-based GPU Programming with OpenACC,JSC,Scheduled (online),"Parallelism, GPU, OpenACC",3-5 November 2026,Online,https://www.fz-juelich.de/en/jsc/news/events/training-courses/training-courses-2026/gpu-openacc
+
+Modern C++ Software Design (Advanced) ,HLRS,Hybrid,"C++",17-20 November 2026,Stuttgart (Germany),https://www.hlrs.de/training/2026/cpp4
+
+Elements of Supercomputing,CSC,Online (self-service),"Parallelism, intro to HPC",none,none,https://research.csc.fi/training/elements-of-supercomputing/
+Containers in Supercomputing Environment,CSC,Scheduled (online),"Parallel-practice, Containers",24-26 November 2026,Online,https://research.csc.fi/training/containers-in-supercomputing-environment-2/
+
+How to write a good application,UKRI,Online (self-service),"Professional Skills",https://www.ukri.org/councils/esrc/guidance-for-applicants/how-to-write-a-good-application/
+
+Programming with Python,Software Carpentry,Online (self-service),"Python",https://swcarpentry.github.io/python-novice-inflammation/
+Plotting and Programming in Python,Software Carpentry,Online (self-service),"Python",http://swcarpentry.github.io/python-novice-gapminder
+Image Processing with Python,Software Carpentry,Online (self-service),"Python",https://datacarpentry.org/image-processing/
+The Unix Shell,Library Carpentry,Online (self-service),"Unix",https://librarycarpentry.org/lc-shell/
+
+
+Message Passing programming with MPI,EPCC/ARCHER2,Scheduled (in-person),"MPI",9-10 September 2026,Durham,https://www.archer2.ac.uk/training/courses/260909-mpi/
+Running GeoChemFoam on HPC: From Micro-CT Images to Remote Visualisation,EPCC/ARCHER2,Scheduled (online),"Other",16 September 2026,Online,https://www.archer2.ac.uk/training/courses/260916-geochemfoam-vt/
+Message-Passing with MPI,EPCC/ARCHER2,Online (self-service),"Parallelism, MPI",https://www.archer2.ac.uk/training/courses/210000-mpi-self-service/
+Hands-on Introduction to HPC,EPCC/ARCHER2,Online (self-service),"intro to HPC",https://www.archer2.ac.uk/training/courses/240000-intro-hpc-self-service/
+Shared Memory Programming with OpenMP,EPCC/ARCHER2,Online (self-service),"OpenMP",https://www.archer2.ac.uk/training/courses/210000-openmp-self-service/
