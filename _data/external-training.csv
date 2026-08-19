@@ -31,16 +31,16 @@ Modern C++ Software Design (Advanced) ,HLRS,Hybrid,"C++",17-20 November 2026,Stu
 Elements of Supercomputing,CSC,Online (self-service),"Parallelism, intro to HPC",none,none,https://research.csc.fi/training/elements-of-supercomputing/
 Containers in Supercomputing Environment,CSC,Scheduled (online),"Parallel-practice, Containers",24-26 November 2026,Online,https://research.csc.fi/training/containers-in-supercomputing-environment-2/
 
-How to write a good application,UKRI,Online (self-service),"Professional Skills",https://www.ukri.org/councils/esrc/guidance-for-applicants/how-to-write-a-good-application/
+How to write a good application,UKRI,Online (self-service),"Professional Skills",none,none,https://www.ukri.org/councils/esrc/guidance-for-applicants/how-to-write-a-good-application/
 
-Programming with Python,Software Carpentry,Online (self-service),"Python",https://swcarpentry.github.io/python-novice-inflammation/
-Plotting and Programming in Python,Software Carpentry,Online (self-service),"Python",http://swcarpentry.github.io/python-novice-gapminder
-Image Processing with Python,Software Carpentry,Online (self-service),"Python",https://datacarpentry.org/image-processing/
-The Unix Shell,Library Carpentry,Online (self-service),"Unix",https://librarycarpentry.org/lc-shell/
+Programming with Python,Software Carpentry,Online (self-service),"Python",none,none,https://swcarpentry.github.io/python-novice-inflammation/
+Plotting and Programming in Python,Software Carpentry,Online (self-service),"Python",none,none,http://swcarpentry.github.io/python-novice-gapminder
+Image Processing with Python,Software Carpentry,Online (self-service),"Python",none,none,https://datacarpentry.org/image-processing/
+The Unix Shell,Library Carpentry,Online (self-service),"Unix",none,none,https://librarycarpentry.org/lc-shell/
 
 
 Message Passing programming with MPI,EPCC/ARCHER2,Scheduled (in-person),"MPI",9-10 September 2026,Durham,https://www.archer2.ac.uk/training/courses/260909-mpi/
 Running GeoChemFoam on HPC: From Micro-CT Images to Remote Visualisation,EPCC/ARCHER2,Scheduled (online),"Other",16 September 2026,Online,https://www.archer2.ac.uk/training/courses/260916-geochemfoam-vt/
-Message-Passing with MPI,EPCC/ARCHER2,Online (self-service),"Parallelism, MPI",https://www.archer2.ac.uk/training/courses/210000-mpi-self-service/
-Hands-on Introduction to HPC,EPCC/ARCHER2,Online (self-service),"intro to HPC",https://www.archer2.ac.uk/training/courses/240000-intro-hpc-self-service/
-Shared Memory Programming with OpenMP,EPCC/ARCHER2,Online (self-service),"OpenMP",https://www.archer2.ac.uk/training/courses/210000-openmp-self-service/
+Message-Passing with MPI,EPCC/ARCHER2,Online (self-service),"Parallelism, MPI",none,none,https://www.archer2.ac.uk/training/courses/210000-mpi-self-service/
+Hands-on Introduction to HPC,EPCC/ARCHER2,Online (self-service),"intro to HPC",none,none,https://www.archer2.ac.uk/training/courses/240000-intro-hpc-self-service/
+Shared Memory Programming with OpenMP,EPCC/ARCHER2,Online (self-service),"OpenMP",none,none,https://www.archer2.ac.uk/training/courses/210000-openmp-self-service/
