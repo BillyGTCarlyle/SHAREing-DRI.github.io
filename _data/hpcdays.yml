@@ -1,0 +1,21 @@
+- platform: blog
+  author: EPCC
+  title: Behind the Scenes of HPC Days
+  description: A look at the organisation, sessions, and people behind HPC Days.
+  url: https://www.cake.ac.uk/news/k8s-cake-at-dhpcd/
+
+- platform: linkedin
+  author: Jane Smith
+  title: My HPC Days highlights
+  description: Reflections on talks, discussions, and networking.
+  url: https://www.linkedin.com/posts/hpc-highperformancecomputing-durhamhpcdays-share-7473760868858777601-_EaU/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEIAhygBhLUh0RWtezg3T5iGVD5GZhqTakQ
+
+- platform: linkedin
+  author: John Brown
+  title: Great conversations at HPC Days
+  url: https://www.linkedin.com/posts/hpc-highperformancecomputing-durhamhpcdays-share-7473760868858777601-_EaU/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEIAhygBhLUh0RWtezg3T5iGVD5GZhqTakQ
+
+- platform: bluesky
+  author: Alice
+  title: HPC Days was fantastic!
+  url: https://bsky.app/profile/cake-dri.bsky.social/post/3mpqad4sduo25
