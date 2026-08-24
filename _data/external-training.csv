@@ -1,7 +1,7 @@
 title,organisation,format,tags,dates,location,url
 
 
-NHR Perflab Seminar,NHR@FAU,Other,"Seminar, Community",none,none,https://hpc.fau.de/research/nhr-perflab-seminar-series/
+NHR Perflab Seminar,NHR@FAU,Other,"Seminar, Community",Rolling basis,Online,https://hpc.fau.de/research/nhr-perflab-seminar-series/
 Introduction to CUDA C/C++,NHR@FAU,Scheduled (online),"CUDA, C/C++",3-4 September 2026,Online,https://hpc.fau.de/teaching/tutorials-and-courses/gpu-programming/cuda/
 Scaling CUDA-Accelerated Applications,NHR@FAU,Scheduled (online),"CUDA",7-9 September 2026,Online,https://hpc.fau.de/teaching/tutorials-and-courses/gpu-programming/scaling-cuda/
 C++ for Beginners,NHR@FAU,Scheduled (online),"C++",17-18 September 2026,Online,https://hpc.fau.de/teaching/tutorials-and-courses/software-engineering/cpp-beginner/
@@ -18,7 +18,7 @@ Node-Level Performance Engineering,NHR@FAU,Scheduled (online),"GPU",1-3 December
 Using Jupyter Notebooks on HPC,NHR@GWDG,Online,,https://academy.gwdg.de/p/event.xhtml?id=69f72823e3e2557f1b42c63e
 Ansys on Cluster and Post-Processing of Simulation Results,NHR@GWDG,Scheduled (online),User-specific,5 October 2026,Online,https://academy.gwdg.de/p/event.xhtml?id=69f72bc8e3e2557f1b42c646
 
-HPC Cafe,NHR@KIT,Other,"Seminar, Community",none,none,https://www.nhr.kit.edu/events.php/event/60386#calendar_top
+HPC Cafe,NHR@KIT,Other,"Seminar, Community",Rolling basis,Online,https://www.nhr.kit.edu/events.php/event/60386#calendar_top
 
 
 
@@ -44,3 +44,7 @@ Running GeoChemFoam on HPC: From Micro-CT Images to Remote Visualisation,EPCC/AR
 Message-Passing with MPI,EPCC/ARCHER2,Online (self-service),"Parallelism, MPI",none,none,https://www.archer2.ac.uk/training/courses/210000-mpi-self-service/
 Hands-on Introduction to HPC,EPCC/ARCHER2,Online (self-service),"intro to HPC",none,none,https://www.archer2.ac.uk/training/courses/240000-intro-hpc-self-service/
 Shared Memory Programming with OpenMP,EPCC/ARCHER2,Online (self-service),"OpenMP",none,none,https://www.archer2.ac.uk/training/courses/210000-openmp-self-service/
+
+
+
+ERROR,ERROR,"C++",Scheduled (online),"C++",10-11 July 2026,Online,https://www.fz-juelich.de/en/jsc/news/events/training-courses/training-courses-2026/hpc-cplusplus
