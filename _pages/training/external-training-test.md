@@ -92,7 +92,6 @@ classes: wide
         Clear filters
     </button>
 
-
     <button id="toggle-calendar" class="control-button">
         📅 Show calendar
     </button>
@@ -106,19 +105,11 @@ classes: wide
 
   </main>
 
-<aside id="filter-sidebar">
+  <aside id="format-sidebar">
+    <h3>Filters</h3>
+    <div id="format-filter"></div>
+  </aside>
 
-    <div class="filter-section">
-        <h3>Filters</h3>
-        <div id="format-filter"></div>
-    </div>
-
-    <div class="filter-section">
-        <h3>Institutions</h3>
-        <div id="institution-filter"></div>
-    </div>
-
-</aside>
 </div>
 
 <button id="back-to-top" aria-label="Back to top">
@@ -837,158 +828,6 @@ classes: wide
     font-weight: 700;
 }
 
-.filter-button {
-    width: 100%;
-    border: 1px solid #e5e7eb;
-    background: white;
-    padding: .55rem .75rem;
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: .6rem;
-    font-weight: 600;
-    color: #374151;
-    text-align: left;
-    transition: .2s ease;
-}
-
-.filter-button:hover {
-    background: #eef4f8;
-    transform: translateX(2px);
-}
-
-.filter-button.active {
-    background: #0f2a3a;
-    color: white;
-    border-color: #0f2a3a;
-}
-
-/* =========================================================
-   FILTER SIDEBAR
-========================================================= */
-
-/* =========================================================
-   FILTER SIDEBAR
-========================================================= */
-
-#filter-sidebar {
-    position: sticky;
-    top: 2rem;
-
-    max-height: calc(100vh - 4rem);
-
-    display: flex;
-    flex-direction: column;
-
-    background: #fff;
-    border: 1px solid #e5e7eb;
-    border-radius: 18px;
-    padding: 1.25rem;
-    margin-top: 1rem;
-
-    box-shadow: 0 4px 12px rgba(0,0,0,.05);
-
-    overflow-y: auto;
-}
-
-
-/* Scrollbar */
-
-#filter-sidebar::-webkit-scrollbar {
-    width: 8px;
-}
-
-#filter-sidebar::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-#filter-sidebar::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 999px;
-}
-
-#filter-sidebar::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
-}
-
-
-/* Filter sections */
-
-.filter-section + .filter-section {
-    margin-top: 1.5rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid #e5e7eb;
-}
-
-.filter-section h3 {
-    margin: 0 0 .75rem;
-    color: #0f2a3a;
-    font-size: .6rem;
-}
-
-
-/* =========================================================
-   FORMAT + INSTITUTION FILTERS
-========================================================= */
-
-#format-filter,
-#institution-filter {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-}
-
-#format-filter {
-    margin-bottom: .25rem;
-}
-
-#institution-filter {
-    max-height: none;
-    overflow-y: visible;
-}
-
-
-/* =========================================================
-   FORMAT + INSTITUTION FILTERS
-========================================================= */
-
-#format-filter,
-#institution-filter {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-}
-
-#format-filter {
-    margin-bottom: .25rem;
-}
-
-#institution-filter {
-    max-height: 350px;
-    overflow-y: auto;
-    padding-right: .25rem;
-}
-
-
-/* Scrollbar */
-
-#institution-filter::-webkit-scrollbar {
-    width: 6px;
-}
-
-#institution-filter::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-#institution-filter::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 999px;
-}
-
-#institution-filter::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
-}
-
-
 /* =========================================================
    TOPIC SECTIONS
 ========================================================= */
@@ -1460,8 +1299,7 @@ const nextMonthButton = document.getElementById("next-month");
 const calendarSection = document.getElementById("calendar-section");
 const toggleCalendarButton = document.getElementById("toggle-calendar");
 
-const institutionFilterContainer =
-    document.getElementById("institution-filter");
+
 // =============================================================================
 // STATE
 // =============================================================================
@@ -1469,7 +1307,7 @@ const institutionFilterContainer =
 let activeFormatFilter = "all";
 let searchTerm = "";
 let calendarDate = new Date();
-let activeOrganisationFilter = "all";
+
 
 // =============================================================================
 // TOPIC GROUPS
@@ -1663,14 +1501,9 @@ function buildTrainingSections() {
                     };
 
 
-                        card.dataset.format =
-                            course.format || "";
-
-                        card.dataset.organisation =
-                            (course.organisation || "").trim();
-
-                        card.dataset.title =
-                            (course.title || "").toLowerCase();
+                card.dataset.format = course.format || "";
+                card.dataset.title =
+                    (course.title || "").toLowerCase();
 
 
                 let courseDetails = "";
@@ -1839,6 +1672,7 @@ function buildTrainingSections() {
 
 }
 
+
 // =============================================================================
 // FORMAT FILTERS
 // =============================================================================
@@ -1879,133 +1713,49 @@ function buildFormatFilters() {
 
     filterContainer.innerHTML = "";
 
+
     formatFilters.forEach(filter => {
 
-        const button = document.createElement("button");
+        const button =
+            document.createElement("button");
 
         button.type = "button";
+
         button.className = "filter-button";
+
         button.textContent = filter.label;
+
         button.dataset.filter = filter.id;
+
 
         if (filter.id === "all") {
             button.classList.add("active");
         }
 
+
         button.addEventListener("click", () => {
 
             activeFormatFilter = filter.id;
 
-            filterContainer
+
+            document
                 .querySelectorAll(".filter-button")
                 .forEach(btn => {
-
                     btn.classList.toggle(
                         "active",
                         btn.dataset.filter === activeFormatFilter
                     );
-
                 });
+
 
             applyFilters();
 
         });
+
 
         filterContainer.appendChild(button);
 
     });
-
-}
-
-
-// =============================================================================
-// ORGANISATION FILTERS
-// =============================================================================
-
-function buildOrganisationFilters() {
-
-    institutionFilterContainer.innerHTML = "";
-
-    // Get unique organisations directly from the CSV data
-    const organisations = [
-        ...new Set(
-            courses
-                .map(course => course.organisation)
-                .filter(Boolean)
-                .map(organisation => organisation.trim())
-        )
-    ].sort((a, b) => a.localeCompare(b));
-
-
-    // -------------------------------------------------------------------------
-    // All institutions
-    // -------------------------------------------------------------------------
-
-    const allButton = document.createElement("button");
-
-    allButton.type = "button";
-    allButton.className = "filter-button active";
-    allButton.textContent = "🌐 All institutions";
-    allButton.dataset.organisation = "all";
-
-    allButton.addEventListener("click", () => {
-
-        activeOrganisationFilter = "all";
-
-        updateOrganisationFilterButtons();
-        applyFilters();
-
-    });
-
-    institutionFilterContainer.appendChild(allButton);
-
-
-    // -------------------------------------------------------------------------
-    // Individual organisations
-    // -------------------------------------------------------------------------
-
-    organisations.forEach(organisation => {
-
-        const button = document.createElement("button");
-
-        button.type = "button";
-        button.className = "filter-button";
-        button.textContent = organisation;
-        button.dataset.organisation = organisation;
-
-        button.addEventListener("click", () => {
-
-            activeOrganisationFilter = organisation;
-
-            updateOrganisationFilterButtons();
-            applyFilters();
-
-        });
-
-        institutionFilterContainer.appendChild(button);
-
-    });
-
-}
-
-
-// =============================================================================
-// UPDATE ORGANISATION FILTER BUTTONS
-// =============================================================================
-
-function updateOrganisationFilterButtons() {
-
-    institutionFilterContainer
-        .querySelectorAll(".filter-button")
-        .forEach(button => {
-
-            button.classList.toggle(
-                "active",
-                button.dataset.organisation ===
-                activeOrganisationFilter
-            );
-
-        });
 
 }
 
@@ -2023,9 +1773,6 @@ function applyFilters() {
             const cardFormat =
                 card.dataset.format;
 
-            const cardOrganisation =
-                card.dataset.organisation;
-
             const cardTitle =
                 card.dataset.title;
 
@@ -2034,18 +1781,13 @@ function applyFilters() {
                 activeFormatFilter === "all" ||
                 cardFormat === activeFormatFilter;
 
-            const matchesOrganisation =
-                activeOrganisationFilter === "all" ||
-                cardOrganisation === activeOrganisationFilter;
 
             const matchesSearch =
                 cardTitle.includes(searchTerm);
 
 
             card.style.display =
-                matchesFormat &&
-                matchesOrganisation &&
-                matchesSearch
+                matchesFormat && matchesSearch
                     ? "flex"
                     : "none";
 
@@ -2064,6 +1806,7 @@ function applyFilters() {
                 section.querySelectorAll(
                     ".training-card:not([style*='display: none'])"
                 );
+
 
             section.style.display =
                 visibleCards.length
@@ -2084,9 +1827,9 @@ function applyFilters() {
             const section =
                 document.getElementById(li.dataset.topic);
 
+
             li.style.display =
-                section &&
-                section.style.display !== "none"
+                section && section.style.display !== "none"
                     ? ""
                     : "none";
 
@@ -2105,6 +1848,7 @@ function applyFilters() {
                 details.querySelectorAll(
                     "li:not([style*='display: none'])"
                 );
+
 
             details.style.display =
                 visibleTopics.length
@@ -2132,8 +1876,10 @@ function initialiseTopicObserver() {
                         return;
                     }
 
+
                     const currentId =
                         entry.target.id;
+
 
                     document
                         .querySelectorAll(".topic-link")
@@ -2169,6 +1915,7 @@ function initialiseTopicObserver() {
     const firstLink =
         document.querySelector(".topic-link");
 
+
     if (firstLink) {
         firstLink.classList.add("active");
     }
@@ -2186,14 +1933,16 @@ function parseCourseDate(dateString) {
         return null;
     }
 
-    const match =
-        dateString.match(
-            /(\d{1,2})(?:[–-](\d{1,2}))?\s+([A-Za-z]+)\s+(\d{4})/
-        );
+
+    const match = dateString.match(
+        /(\d{1,2})(?:[–-](\d{1,2}))?\s+([A-Za-z]+)\s+(\d{4})/
+    );
+
 
     if (!match) {
         return null;
     }
+
 
     const startDay =
         parseInt(match[1], 10);
@@ -2209,14 +1958,17 @@ function parseCourseDate(dateString) {
     const year =
         parseInt(match[4], 10);
 
+
     const monthIndex =
         new Date(
             `${monthName} 1, ${year}`
         ).getMonth();
 
+
     if (Number.isNaN(monthIndex)) {
         return null;
     }
+
 
     const start =
         new Date(
@@ -2225,6 +1977,7 @@ function parseCourseDate(dateString) {
             startDay
         );
 
+
     const end =
         new Date(
             year,
@@ -2232,8 +1985,11 @@ function parseCourseDate(dateString) {
             endDay
         );
 
+
     start.setHours(0, 0, 0, 0);
+
     end.setHours(23, 59, 59, 999);
+
 
     return {
         start,
@@ -2301,9 +2057,11 @@ function getScheduledCourses() {
             const parsed =
                 parseCourseDate(course.dates);
 
+
             if (!parsed) {
                 return null;
             }
+
 
             return {
                 ...course,
@@ -2349,6 +2107,7 @@ function renderCalendar() {
         return;
     }
 
+
     const year =
         calendarDate.getFullYear();
 
@@ -2372,11 +2131,13 @@ function renderCalendar() {
     const lastDay =
         new Date(year, month + 1, 0);
 
+
     const firstWeekday =
         getWeekday(firstDay);
 
     const daysInMonth =
         lastDay.getDate();
+
 
     const numberOfWeeks =
         Math.ceil(
@@ -2426,15 +2187,18 @@ function renderCalendar() {
                 1 - firstWeekday + week * 7
             );
 
+
         weekStart.setHours(0, 0, 0, 0);
 
 
         const weekEnd =
             new Date(weekStart);
 
+
         weekEnd.setDate(
             weekEnd.getDate() + 6
         );
+
 
         weekEnd.setHours(
             23,
@@ -2466,14 +2230,19 @@ function renderCalendar() {
 
             let lane = 0;
 
+
             while (
                 lanes[lane] &&
                 lanes[lane].end >= course.start
             ) {
+
                 lane++;
+
             }
 
+
             course._calendarLane = lane;
+
             lanes[lane] = course;
 
         });
@@ -2486,6 +2255,7 @@ function renderCalendar() {
         const eventHeight = 25;
         const eventGap = 4;
         const eventTop = 38;
+
 
         const weekHeight =
             Math.max(
@@ -2543,6 +2313,7 @@ function renderCalendar() {
                     dayNumber
                 );
 
+
             currentDate.setHours(
                 0,
                 0,
@@ -2565,9 +2336,11 @@ function renderCalendar() {
                     class="calendar-day"
                     data-date="${dateKey(currentDate)}"
                 >
+
                     <div class="calendar-date ${todayClass}">
                         ${dayNumber}
                     </div>
+
                 </div>
             `;
 
@@ -2584,6 +2357,7 @@ function renderCalendar() {
                 course.start > weekStart
                     ? course.start
                     : weekStart;
+
 
             const eventEnd =
                 course.end < weekEnd
@@ -2602,6 +2376,7 @@ function renderCalendar() {
                 startColumn = 0;
             }
 
+
             if (course.end > weekEnd) {
                 endColumn = 6;
             }
@@ -2616,6 +2391,7 @@ function renderCalendar() {
                     course.start,
                     eventStart
                 );
+
 
             const endsHere =
                 isSameDay(
@@ -2648,8 +2424,10 @@ function renderCalendar() {
             const left =
                 (startColumn / 7) * 100;
 
+
             const width =
                 (span / 7) * 100;
+
 
             const top =
                 eventTop +
@@ -2706,6 +2484,7 @@ if (toggleCalendarButton && calendarSection) {
 
             const isVisible =
                 calendarSection.classList.toggle("show");
+
 
             toggleCalendarButton.textContent =
                 isVisible
@@ -2769,14 +2548,19 @@ if (toggleButton) {
                     "#topic-list details"
                 );
 
+
             const expand =
                 [...details].some(
-                    detail => !detail.open
+                    details => !details.open
                 );
 
-            details.forEach(detail => {
-                detail.open = expand;
-            });
+
+            details.forEach(
+                details => {
+                    details.open = expand;
+                }
+            );
+
 
             toggleButton.textContent =
                 expand
@@ -2804,6 +2588,7 @@ if (searchBox) {
                     .trim()
                     .toLowerCase();
 
+
             applyFilters();
 
         }
@@ -2823,7 +2608,6 @@ if (clearButton) {
         () => {
 
             activeFormatFilter = "all";
-            activeOrganisationFilter = "all";
             searchTerm = "";
 
 
@@ -2832,8 +2616,7 @@ if (clearButton) {
             }
 
 
-            // Reset format filters
-            filterContainer
+            document
                 .querySelectorAll(".filter-button")
                 .forEach(button => {
 
@@ -2843,10 +2626,6 @@ if (clearButton) {
                     );
 
                 });
-
-
-            // Reset organisation filters
-            updateOrganisationFilterButtons();
 
 
             applyFilters();
@@ -2904,8 +2683,8 @@ if (backToTop) {
 buildSidebar();
 buildTrainingSections();
 buildFormatFilters();
-buildOrganisationFilters();
 applyFilters();
 initialiseTopicObserver();
 renderCalendar();
+
 </script>

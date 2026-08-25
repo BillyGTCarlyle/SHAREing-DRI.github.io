@@ -68,6 +68,30 @@ classes: wide
   box-shadow: 0 18px 40px rgba(0,0,0,0.12);
 }
 
+.task-card {
+  position: relative;
+}
+
+.task-new-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 5;
+
+  background: #B906B9;
+  color: #fff;
+
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
 
 .task-main-image {
   width: 100%;
@@ -202,65 +226,128 @@ If you are interested in contributing similar work, please explore our current <
 
 
 <section class="section-wide">
-  <div class="tasks-grid">
+ <div class="tasks-grid">
 
-    {% for task in site.tasks %}
-      {% if task.status == "progress" %}
+  {%- comment -%}
+    First show tasks marked as "new"
+  {%- endcomment -%}
+
+  {% for task in site.tasks %}
+    {% if task.status == "progress" and task.added == "new" %}
 
       <a href="{{ task.url }}" class="task-card">
 
+        <span class="task-new-badge">Just funded!</span>
+
         {% if task.image %}
-          <img 
-             src="{{ task.image }}" 
-             loading="lazy"
+          <img
+            src="{{ task.image }}"
+            loading="lazy"
             class="task-main-image"
           >
         {% endif %}
 
         <div class="task-content">
-        
-
-
 
           <p class="wp">{{ task.workpackage }}</p>
 
           <h3>{{ task.title }}</h3>
 
           {% if task.person.name %}
-          <div class="task-person">
+            <div class="task-person">
 
-            {% if task.person.image %}
-              <img 
-                src="{{ task.person.image }}" 
-                loading="lazy"
-                alt="{{ task.person.name }}"
-                class="task-profile-pic"
-              >
-            {% endif %}
-
-            <div class="task-person-info">
-
-              <div class="name">
-                {{ task.person.name }}
-              </div>
-
-              {% if task.person.institution %}
-                <div class="institution">
-                  {{ task.person.institution }}
-                </div>
+              {% if task.person.image %}
+                <img
+                  src="{{ task.person.image }}"
+                  loading="lazy"
+                  alt="{{ task.person.name }}"
+                  class="task-profile-pic"
+                >
               {% endif %}
 
-            </div>
+              <div class="task-person-info">
 
-          </div>
+                <div class="name">
+                  {{ task.person.name }}
+                </div>
+
+                {% if task.person.institution %}
+                  <div class="institution">
+                    {{ task.person.institution }}
+                  </div>
+                {% endif %}
+
+              </div>
+
+            </div>
           {% endif %}
 
         </div>
 
       </a>
 
-      {% endif %}
-    {% endfor %}
+    {% endif %}
+  {% endfor %}
 
-  </div>
+
+  {%- comment -%}
+    Then show all other tasks
+  {%- endcomment -%}
+
+  {% for task in site.tasks %}
+    {% if task.status == "progress" and task.added != "new" %}
+
+      <a href="{{ task.url }}" class="task-card">
+
+        {% if task.image %}
+          <img
+            src="{{ task.image }}"
+            loading="lazy"
+            class="task-main-image"
+          >
+        {% endif %}
+
+        <div class="task-content">
+
+          <p class="wp">{{ task.workpackage }}</p>
+
+          <h3>{{ task.title }}</h3>
+
+          {% if task.person.name %}
+            <div class="task-person">
+
+              {% if task.person.image %}
+                <img
+                  src="{{ task.person.image }}"
+                  loading="lazy"
+                  alt="{{ task.person.name }}"
+                  class="task-profile-pic"
+                >
+              {% endif %}
+
+              <div class="task-person-info">
+
+                <div class="name">
+                  {{ task.person.name }}
+                </div>
+
+                {% if task.person.institution %}
+                  <div class="institution">
+                    {{ task.person.institution }}
+                  </div>
+                {% endif %}
+
+              </div>
+
+            </div>
+          {% endif %}
+
+        </div>
+
+      </a>
+
+    {% endif %}
+  {% endfor %}
+
+</div>
 </section>

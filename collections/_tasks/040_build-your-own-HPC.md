@@ -1,50 +1,30 @@
 ---
-title: "Build your own HPC workshop - Task 040"
-layout: tasks
+title: "Carpentries-style training in HPC hardware and software"
+layout: champions
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
-image: assets/images/logo.png
-summary: 
+image: https://images.pexels.com/photos/7269689/pexels-photo-7269689.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 workpackage: "wp2.4"
-status: open
+added: new
+status: progress
+person:
+  name: Jannetta Steyn
+  institution: Newcastle University
+  image: /assets/profilepics/generic.jpg
 ---
 
 
 ## Fit to programme
 
-This task has been identified by the working groups as part of the agenda behind [WP 2.4](/workpackages/workpackage-2/).
 
-The task number is 040.
+This was a proposed solution answering Task 040: Build your own HPC workshop, behind [WP 2.4](/workpackages/workpackage-2/).
 
-<!-- I need some pictures and links -->
 
 ## Summary
 
-This task is to develop and deliver a prototype iteration of a workshop in which participants prepare the technical specification for, and subsequently build, a cluster of single-board computers.
+We propose delivering two pilot workshops to test and refine our existing “Building a mini-HPC cluster" training course (https://carpentriesoffline.github.io/Building_a_miniHPC_for_Training/): one in North East England and one in London. The sessions will teach Research Technical Professionals (RTPs) and Researchers, especially digital RTPs, foundational High-Performance Computing (HPC) hardware and software architecture through the hands-on assembly and testing of a physical mini-HPC cluster.
 
-## Approach and Methodology
+The course offers a practical grounding for anyone interested in HPC or Linux HPC system administration. By assembling a cluster from scratch, participants experience the realities of supercomputing hands-on, letting us highlight the real-world energy demands and promote a "green computing" ethos.
 
-Single-board computers such as the Raspberry Pi and BeagleBoard provide an inexpensive substitute for datacentre-grade servers, making it possible to build a cluster demonstrating many of the qualities of distributed computing on a budget accessible to an event organiser. 
-
-This provides learners experience of the sorts of decisions and trade-offs made by systems staff when specifying and procuring new high-performance computing systems, and the technical work performed when installing and configuring such systems. This would introduce the key concepts and constraints for system development and be a good starting point for learning about more advanced systems and considerations. 
-
-This would contribute to the goals of both WP2 and WP4: both developing a skill set, and inspiring existing students to become involved in the infrastructure components of accelerated compute, and could also be used with apprenticeship infrastructure engineers. 
-
-It is anticipated that the training would comprise two components: 
-
-An introductory workshop, introducing the components of high-performance and accelerated computing systems. This may be online, e-learning, or in-person 
-
-A workshop in which a cluster of single-board computers is designed, assembled, and configured with an appropriate software stack. 
-
-The workshop design and implementation should also evaluate impact of the learning, and if it affects learners’ interest in careers in infrastructure.
+We will use an iterative evaluation approach: collating feedback to improve the material after the first workshop, and assessing the impact of those updates after the second. Finally, we will submit the refined course to the Carpentries Incubator(https://carpentries-incubator.org/) in order to expand the workshop's audience and profile, while leveraging an established open-source community to ensure its long-term viability and continuous improvement.
 
 
-
-## Outputs
-
-Materials (both supporting online learning and in-person delivery) for two pieces of training forming a single workshop: an introduction to the components of high-performance and accelerated computing systems; and designing, assembling, and configuring a cluster of single-board computers. 
-
-At least one delivered instance of the above workshop. 
-
-A report evaluating the student experience and learning that occurred during the workshop, the impact on learners, and any lessons learned for future iterations of the workshop. 
-
-Documentation of any difficulties encountered in delivering the workshop, and recommendations to support future instances 
