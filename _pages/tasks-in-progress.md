@@ -68,6 +68,30 @@ classes: wide
   box-shadow: 0 18px 40px rgba(0,0,0,0.12);
 }
 
+.task-card {
+  position: relative;
+}
+
+.task-new-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 5;
+
+  background: #B906B9;
+  color: #fff;
+
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
 
 .task-main-image {
   width: 100%;
@@ -207,15 +231,19 @@ If you are interested in contributing similar work, please explore our current <
     {% for task in site.tasks %}
       {% if task.status == "progress" %}
 
-      <a href="{{ task.url }}" class="task-card">
+            <a href="{{ task.url }}" class="task-card">
 
-        {% if task.image %}
-          <img 
-             src="{{ task.image }}" 
-             loading="lazy"
-            class="task-main-image"
-          >
-        {% endif %}
+              {% if task.added == "new" %}
+                <span class="task-new-badge">Just funded!</span>
+              {% endif %}
+
+              {% if task.image %}
+                <img 
+                  src="{{ task.image }}" 
+                  loading="lazy"
+                  class="task-main-image"
+                >
+              {% endif %}
 
         <div class="task-content">
         
