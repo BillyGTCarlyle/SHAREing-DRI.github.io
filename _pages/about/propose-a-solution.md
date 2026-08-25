@@ -267,15 +267,13 @@ layout: splash
 <section class="notice-box">
 
 
-    
-  
-   <strong>📅 Application deadline</strong><br>
+<strong>📅 Application deadline</strong><br>
 
-Calls to propose solutions for open tasks are launched quarterly. <strong>The current call closed on 8 July 2026. A new call will open later this year.</strong>
-  
-    
+The next call to propose solutions for open tasks will open on <strong>2 October 2026</strong> and close on <strong>20 November 2026</strong>.<br>
+
+If you have an idea for a new task that could be funded in this round, please <a href="https://shareing-dri.github.io/about/suggest-a-task">suggest your task</a> by <strong>22 September 2026</strong>.
+
 </section>
-
 
 
 
@@ -307,7 +305,7 @@ Calls to propose solutions for open tasks are launched quarterly. <strong>The cu
     
      <div class="notice-box">
     <strong>📅 Application Deadlines</strong><br>
-    Proposals to deliver open tasks are reviewed quarterly.<strong> The current call closed on 8 July 2026. A new call will open later this year.</strong>
+   The next call to propose solutions for open tasks will open on <strong>2 October 2026</strong> and close on <strong>20 November 2026</strong>. If you have an idea for a new task that could be funded in this round, please <a href="https://shareing-dri.github.io/about/suggest-a-task">suggest your task</a> by <strong>22 September 2026</strong>.
      </div>
 
     <div class="notice-box">

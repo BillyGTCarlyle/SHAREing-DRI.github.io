@@ -14,6 +14,26 @@ header:
   
   <div class="news-grid">
   
+
+<div class="news-card">
+  <div class="news-content">
+  
+    <span class="news-date">September 2026</span>
+    <h3>Suggest a New SHAREing Task</h3>
+    
+    <p>
+      The next SHAREing Flexible Fund round is now open for new task suggestions.
+      Have an idea that fits one of our Work Package themes? 
+      <strong>Submit your suggestion by 22 September 2026</strong> to have it considered
+      for the next funding call, which will open on <strong>2 October</strong> and close on
+      <strong>20 November 2026</strong>. Find out more and
+      <a href="/about/suggest-a-task/">suggest a new task here</a>.
+    </p>
+
+  </div>
+</div>
+
+
   
   <div class="news-card">
   <div class="news-content">
@@ -47,24 +67,7 @@ header:
 
 
   
-  
-     <div class="news-card">
-  <div class="news-content">
-    <span class="news-date">May 2026</span>
-    <h3>Next round of SHAREing's Flexible Funds is Now Open</h3>
-    <p>
-    The next round to Propose a solution to a current Open Task is now open! Check out the current open tasks or <a href="/about/suggest-a-task">suggest a new task</a>.</p>
-   
-   <p> The current deadline to <a href="/about/propose-a-solution">propose a solution to an open task</a> is <strong> 8 July 2026 </strong> </p>
-  </div>
-</div>  
-
-
-
-
-
-  
-  
+ 
 
 
    
@@ -78,7 +81,16 @@ header:
     <summary>Past news</summary>
 
 
-
+     <div class="news-card">
+  <div class="news-content">
+    <span class="news-date">May 2026</span>
+    <h3>Next round of SHAREing's Flexible Funds is Now Open</h3>
+    <p>
+    The next round to Propose a solution to a current Open Task is now open! Check out the current open tasks or <a href="/about/suggest-a-task">suggest a new task</a>.</p>
+   
+   <p> The current deadline to <a href="/about/propose-a-solution">propose a solution to an open task</a> is <strong> 8 July 2026 </strong> </p>
+  </div>
+</div>  
       
    <div class="news-card">
   <div class="news-content">

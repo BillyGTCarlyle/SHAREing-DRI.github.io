@@ -640,9 +640,9 @@ grid-template-columns: repeat(4, minmax(100px, 1fr));
   background: #f8fafc;
   border: 1px solid #dbe4ee;
   border-radius: 12px;
-  padding: 0.75rem;
+  padding: 0.5rem;
   text-align: center;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 .wp-btn:hover {
@@ -901,10 +901,11 @@ body.filter-completed .progress-col {
 
 </style>
 
+<!---
 <div class="funding-banner">
-  📢 The current Flexible Fund call to propose solutions to open tasks has now <strong>closed</strong>. A new call will open later this year. Until then, you can browse existing tasks and continue to<a href="/about/suggest-a-task/">Suggest New Tasks</a> on a rolling basis.
+  📢 The call to <strong>Suggest New Tasks</strong> for the next Flexible Fund round is now open until  <strong>22 September</strong>.
 </div>
-
+!-->
 <details class="collapsible-diagram">
 
   <summary>
@@ -919,106 +920,99 @@ body.filter-completed .progress-col {
     You can get involved in two ways: <strong> propose a solution </strong> to an existing open task or <strong> suggest a new task</strong>. <br>
   </p>
 
-  <div class="diagram-grid">
+<div class="diagram-grid">
 
-    <!-- LEFT -->
-    <div class="diagram-column">
+  <!-- LEFT: SUGGEST A NEW TASK -->
+  <div class="diagram-column">
 
-      <div class="column-title blue">
-        <div class="icon-circle">📋</div>
-      PROPOSE A SOLUTION TO AN EXISTING OPEN TASK – Call currently closed
-      </div>
-
-      <div class="flow-card blue-card">
-        <p>
-          Explore the open tasks across our Working Packages (WP1, WP2, WP3, WP4).
-        </p>
-      </div>
-      
-        <div class="flow-card blue-card">
-        
-
-        
-    <a href="https://shareing-dri.github.io/about/flexible-funds">  Check our Flexible Fund Guidance</a>
-            
-            
-            
-      </div>
-
-      <div class="flow-card blue-card">
-        <h4>Submit your proposal</h4>
-        <p>
-          Propose your solution to an existing open task.
-        </p>
-      </div>
-
-      <div class="deadline-card">
-        <h3>Proposal deadline</h3>
-          <p>Closed on 8 July. A new call will open later this year.</p>
-      </div>
-
+    <div class="column-title green">
+      <div class="icon-circle">💡</div>
+      SUGGEST A NEW TASK – Call currently open
     </div>
 
-    <!-- RIGHT -->
-    <div class="diagram-column">
-
-      <div class="column-title green">
-        <div class="icon-circle">💡</div>
-          SUGGEST A NEW TASK – Call currently open
-      </div>
-
-      <div class="flow-card green-card">
-        <h4>Suggest a new task (rolling call)</h4>
-        <p>
-          Submit your idea for a new task at any time using the “Suggest a Task” form.
-        </p>
-      </div>
-
-      <div class="flow-card green-card">
-        <h4>Discussed at open Working Package meetings</h4>
-        <p>
-          Your suggestion will be discussed at the next open meeting for the relevant Working Package.
-        </p>
-
-
-<!--
-        <div class="meeting-boxes">
-        
-
-
-  
-      <a class="wp-btn" href="https://events.teams.microsoft.com/event/38be2c9a-e1aa-4334-aa0a-e5aba51d919a@7250d88b-4b68-4529-be44-d59a2d8a6f94"> <strong> WP1 </strong>  <br> 29 May 2026</a>
-      
-      <a class="wp-btn" href="https://events.teams.microsoft.com/event/938852b6-6b07-461f-b027-89f539f24f29@7250d88b-4b68-4529-be44-d59a2d8a6f94"> <strong> WP2 </strong>  <br> 15 May 2026</a>
-            
-            
-     <a class="wp-btn" href=" https://events.teams.microsoft.com/event/7268ce97-0bdb-4f89-b5c4-cedcc8ef04ec@7250d88b-4b68-4529-be44-d59a2d8a6f94"> <strong> WP3 </strong>  <br> 22 May 2026</a>
-        </div>
-
-
-          -->
-
-
-      </div>
-      
-      
-      
-      
-
-      <div class="flow-card green-card">
-        <h4>Approved?</h4>
-        <p>
-          If approved, the new task will be added to the map of open tasks on this website. You are then welcome to propose a solution to the task.
-        </p>
-      </div>
-
-    
-
+    <div class="flow-card green-card">
+      <h4>Suggest a new task</h4>
+      <p>
+        <a href="https://shareing-dri.github.io/about/suggest-a-task">
+          Submit your idea for a new task
+        </a>
+        that matches one of the Work Package themes <strong> by 22 September </strong>
+      </p>
     </div>
 
+    <div class="flow-card green-card">
+      <h4>Discussed at open Working Package meetings</h4>
+      <p>
+        Your suggestion will be discussed at the next open meeting for the relevant Working Package.
+      </p>
 
+      <div class="meeting-boxes">
+
+        <a class="wp-btn" href="https://shareing-dri.github.io/events/202609-WP1-webinar/">
+          <strong>WP1</strong><br>3pm, 24 Sept 2026
+        </a>
+
+        <a class="wp-btn" href="https://shareing-dri.github.io/events/202609-WP2-webinar/">
+          <strong>WP2</strong><br>3pm, 25 Sept 2026
+        </a>
+
+        <a class="wp-btn" href="https://shareing-dri.github.io/events/202609-WP3-webinar/">
+          <strong>WP3</strong><br>3pm, 23 Sept 2026
+        </a>
+
+      </div>
+    </div>
+
+    <div class="flow-card green-card">
+      <h4>Approved?</h4>
+      <p>
+        If approved, the new task will be added to the map of open tasks on this website.
+        You are then welcome to propose a solution to the task.
+      </p>
+    </div>
 
   </div>
+
+
+  <!-- RIGHT: PROPOSE A SOLUTION -->
+  <div class="diagram-column">
+
+    <div class="column-title blue">
+      <div class="icon-circle">📋</div>
+      PROPOSE A SOLUTION TO AN EXISTING OPEN TASK – Will open on 2 October
+    </div>
+
+    <div class="flow-card blue-card">
+      <p>
+        Explore the open tasks across our Working Packages (WP1, WP2, WP3, WP4).
+      </p>
+    </div>
+
+    <div class="flow-card blue-card">
+
+      <a href="https://shareing-dri.github.io/about/flexible-funds">
+        Check our Flexible Fund Guidance
+      </a>
+
+    </div>
+
+    <div class="flow-card blue-card">
+      <h4>Submit your proposal</h4>
+      <p>
+        Propose your solution to an existing open task.
+      </p>
+    </div>
+
+    <div class="deadline-card">
+      <h3>Proposal deadline</h3>
+      <p>
+        This call will open on 2 October and close on 20 November 2026.
+      </p>
+    </div>
+
+  </div>
+
+</div>
 
 
   <!-- REVIEW SECTION -->
