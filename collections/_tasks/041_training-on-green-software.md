@@ -1,45 +1,24 @@
 ---
-title: "Develop training on green software practices for accelerate computing - Task 041"
-layout: tasks
+title: "Green Software Practices on Accelerated Computing Resources"
+layout: champions
  # set date when task has been approved by consortium. Remove once completed. Will then go into history
-image: assets/images/logo.png
-summary:
+image: https://images.pexels.com/photos/37665421/pexels-photo-37665421.jpeg?auto=compress&cs=tinysrgb&fm=webp&w=600
 workpackage: "wp2.3"
-status: open
+added: new
+status: progress
+person:
+  name: Patrick Williams
+  institution: University of York
+  image: /assets/profilepics/generic.jpg
 ---
 
 
 ## Fit to programme
 
-This task has been identified by the working groups as part of the agenda behind [WP 2.3](/workpackages/workpackage-2/).
-
-The task number is 041.
-
-<!-- I need some pictures and links -->
+This was a proposed solution answering Task 041: Develop training on green software practices for accelerate computing, behind [WP 2.3](/workpackages/workpackage-2/).
 
 ## Summary
 
-Due to the urgency of the climate crisis, UKRI is committed to reaching Net Zero by 2040, which will require significant changes across the entire digital research infrastructure. 
-
-Green software practices will play a crucial role in this transition. For full adoption, we must enable the next generation of RSEs and researchers to embed green software practices, but at present training on this topic is limited, fragmented and not targeted to RSEs. 
-
-Several “green” training courses are available - some covering high level topics and some focusing on specific topics such as Green HPC and Green AI (see https://socrse.github.io/green-sig/resources.html) - but, to the best of our knowledge, there is no training specifically for green computing with GPU accelerators. There would be a clear overlap with Green HPC (and perhaps Green AI) but there would likely also be some information specific to best practices for computing using GPUs and similar accelerators.
-
-Attendees of such a course would want to learn about topics such as:
-- Carbon emissions associated with both the manufacture of GPU accelerators and similar hardware and with its use.
-- The relationship between optimization and reducing emissions.
-- Best practices for developing green GPU-accelerated software.
-
-
-## Outputs and deliverables
-
-One option would be to create a new bespoke course on green software practices for GPU-accelerated computing. Alternatively, authors of existing courses on accelerate computing could be approached or included as collaborators and the project could focus on adapting those courses to include relevant information on green computing. The second option would help to embed green software practices, rather than having it as an “opt-in” thing in a separate course.
-
-It would be beneficial to publish one or more blog posts on this topic to disseminate the information beyond those who attend the course.
-
-At minimum, the main output would be to publish training material (new or adapted) that provides guidance on best practices for green GPU-accelerated computing.
-
-
-
+In response to the impending global climate crisis, the UK Government has committed to achieving net zero carbon emissions by 2050, with several sectors required to reach this by 2040. One vital and growing sector is that of largescale computing and data facilities, with data centres alone estimated to contribute over 0.5% of global annual CO2 emissions. This expansion is driven by both direct numerical simulations and the explosion of AI/ML methodologies, and the widespread adoption of GPU-accelerated architectures. It is thus important to ensure that there is training for software developers and data science researchers on the best “green computing” practices. Although there are some training courses available for “green” best practices in High-Performance Computing (HPC), none of these focus specifically on best practices with GPU-based accelerators, despite their rapid adoption in HPC from largescale data centres to workstations and laptops. We will create a training course that focuses particularly on green GPU usage that covers the impact on climate of: the manufacture and use of accelerator hardware; the relationship between optimisation and carbon emission, and how this compares to non-accelerated HPC; and overall best practices for using GPUs in a climate conscious way. 
 
 
