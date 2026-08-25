@@ -266,48 +266,73 @@ layout: splash
   </p>
 
   <p>
-    If you have identified a gap, opportunity, or activity that would strengthen the community — whether through training, performance assessment, knowledge exchange, or collaboration — you may propose a new Task for consideration.
+    If you have identified a gap, opportunity, or activity that would strengthen the community - whether through training, performance assessment, knowledge exchange, or collaboration - you may propose a new Task for consideration.
   </p>
 </section>
+
 
 <section class="section-muted">
   <div class="section">
     <h2>Before You Submit</h2>
     
     
+
 <div class="notice-box">
-      
- 👉 SHAREing welcomes suggestions for tasks from all contributors based in an institution
-      <a href="https://eur01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.ukri.org%2Fapply-for-funding%2Fbefore-you-apply%2Ffind-out-if-you-can-apply-for-funding%2F%23contents-list&data=05%7C02%7Ceva.fernandez-amez%40durham.ac.uk%7Ca6427551a829477ea00108de695ae81e%7C7250d88b4b684529be44d59a2d8a6f94%7C0%7C0%7C639064036311229146%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=2B1GlboZZaKdh6J7VT3WuJ8AbrWwMlJj8jclY5zsnkk%3D&reserved=0"><strong>eligible to receive UKRI funding</strong></a>
-    </div>
-    
-    
-   
-  <div class="notice-box">
-    <strong>📅 Call status: Rolling</strong><br>
-    Task suggestions can be submitted at any time. There is no fixed deadline. Once approved by the consortium, the task will be published as an open task on the Task Map. Funding applications for open tasks are reviewed quarterly.
+  👉 SHAREing welcomes task suggestions from contributors based at an institution
+  <a href="https://www.ukri.org/apply-for-funding/before-you-apply/find-out-if-you-can-apply-for-funding/#contents-list">
+    <strong>eligible to receive UKRI funding</strong>
+  </a>.
+</div>
+
+<div class="notice-box">
+  <strong>📅 Submit your task suggestion by 22 September 2026</strong>
+  <br>
+  Have an idea for a new task that fits within one of the SHAREing Work Package themes?
+  Submit your suggestion by <strong>22 September</strong> for consideration in this funding round.
+</div>
+
+<div class="notice-box">
+  <strong>💬 What happens next?</strong>
+  <br>
+  Suggested tasks will be discussed at the next open Working Package meeting, where the
+  SHAREing community can provide feedback and help shape the task.
+  
+  <div class="meeting-boxes">
+
+    <a class="wp-btn" href="https://shareing-dri.github.io/events/202609-WP1-webinar/">
+      <strong>WP1</strong> 3pm, 24 Sept 2026 <br>
+    </a>
+
+    <a class="wp-btn" href="https://shareing-dri.github.io/events/202609-WP2-webinar/">
+      <strong>WP2</strong> 3pm, 25 Sept 2026 <br>
+    </a>
+
+    <a class="wp-btn" href="https://shareing-dri.github.io/events/202609-WP3-webinar/">
+      <strong>WP3</strong> 3pm, 23 Sept 2026 <br>
+    </a>
+
   </div>
-    
-    <div class="notice-box">
-      <strong>All applicants must read the Flexible Fund Guidance before submitting a task suggestion.</strong>
-      <br>
-      Tasks will be supported through SHAREing Flexible Funds and must comply with UKRI funding rules and eligibility requirements.
-      <br>
-      👉 <a href="/about/flexible-funds"><strong>Read the Flexible Fund Guidance</strong></a>
-    </div>
+</div>
 
+<div class="notice-box">
+  <strong>✅ If your task is approved</strong>
+  <br>
+  The task will become an <strong>open, funded task</strong> and will be added to the
+  SHAREing Task Map. From <strong>2 October 2026</strong>, contributors will be able
+  to submit proposals to carry out the approved tasks.
+</div>
 
-
-
-
-
-
-
-    <br>
-
-
-
-  </div>
+<div class="notice-box">
+  <strong>📋 Before submitting a suggestion</strong>
+  <br>
+  All task suggestions must comply with UKRI funding rules and eligibility requirements
+  and will be supported through SHAREing Flexible Funds.
+  <br><br>
+  👉 <a href="/about/flexible-funds">
+    <strong>Read the Flexible Fund Guidance</strong>
+  </a>
+</div>
+</div>
 </section>
 
 <section class="section">
@@ -349,11 +374,7 @@ layout: splash
     </div>
     
     
-       <div class="wp-card">
-      <h4>WP4 <br> Outreach, stakeholder engagement and capacity building</h4>
-      <a href="/workpackages/workpackage-2/">WP4.1 - Liase with compute centres, RTP comunities, and lobby groups.</a>
-      <a href="/workpackages/workpackage-2/">WP4.3 - Marketing and brand-building in collaboration with the knowledge exchange DRI grant. Presence at international and UK conferences</a>
-    </div>
+
     
     
   </div>
