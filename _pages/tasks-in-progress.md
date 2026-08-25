@@ -226,69 +226,128 @@ If you are interested in contributing similar work, please explore our current <
 
 
 <section class="section-wide">
-  <div class="tasks-grid">
+ <div class="tasks-grid">
 
-    {% for task in site.tasks %}
-      {% if task.status == "progress" %}
+  {%- comment -%}
+    First show tasks marked as "new"
+  {%- endcomment -%}
 
-            <a href="{{ task.url }}" class="task-card">
+  {% for task in site.tasks %}
+    {% if task.status == "progress" and task.added == "new" %}
 
-              {% if task.added == "new" %}
-                <span class="task-new-badge">Just funded!</span>
-              {% endif %}
+      <a href="{{ task.url }}" class="task-card">
 
-              {% if task.image %}
-                <img 
-                  src="{{ task.image }}" 
-                  loading="lazy"
-                  class="task-main-image"
-                >
-              {% endif %}
+        <span class="task-new-badge">Just funded!</span>
+
+        {% if task.image %}
+          <img
+            src="{{ task.image }}"
+            loading="lazy"
+            class="task-main-image"
+          >
+        {% endif %}
 
         <div class="task-content">
-        
-
-
 
           <p class="wp">{{ task.workpackage }}</p>
 
           <h3>{{ task.title }}</h3>
 
           {% if task.person.name %}
-          <div class="task-person">
+            <div class="task-person">
 
-            {% if task.person.image %}
-              <img 
-                src="{{ task.person.image }}" 
-                loading="lazy"
-                alt="{{ task.person.name }}"
-                class="task-profile-pic"
-              >
-            {% endif %}
-
-            <div class="task-person-info">
-
-              <div class="name">
-                {{ task.person.name }}
-              </div>
-
-              {% if task.person.institution %}
-                <div class="institution">
-                  {{ task.person.institution }}
-                </div>
+              {% if task.person.image %}
+                <img
+                  src="{{ task.person.image }}"
+                  loading="lazy"
+                  alt="{{ task.person.name }}"
+                  class="task-profile-pic"
+                >
               {% endif %}
 
-            </div>
+              <div class="task-person-info">
 
-          </div>
+                <div class="name">
+                  {{ task.person.name }}
+                </div>
+
+                {% if task.person.institution %}
+                  <div class="institution">
+                    {{ task.person.institution }}
+                  </div>
+                {% endif %}
+
+              </div>
+
+            </div>
           {% endif %}
 
         </div>
 
       </a>
 
-      {% endif %}
-    {% endfor %}
+    {% endif %}
+  {% endfor %}
 
-  </div>
+
+  {%- comment -%}
+    Then show all other tasks
+  {%- endcomment -%}
+
+  {% for task in site.tasks %}
+    {% if task.status == "progress" and task.added != "new" %}
+
+      <a href="{{ task.url }}" class="task-card">
+
+        {% if task.image %}
+          <img
+            src="{{ task.image }}"
+            loading="lazy"
+            class="task-main-image"
+          >
+        {% endif %}
+
+        <div class="task-content">
+
+          <p class="wp">{{ task.workpackage }}</p>
+
+          <h3>{{ task.title }}</h3>
+
+          {% if task.person.name %}
+            <div class="task-person">
+
+              {% if task.person.image %}
+                <img
+                  src="{{ task.person.image }}"
+                  loading="lazy"
+                  alt="{{ task.person.name }}"
+                  class="task-profile-pic"
+                >
+              {% endif %}
+
+              <div class="task-person-info">
+
+                <div class="name">
+                  {{ task.person.name }}
+                </div>
+
+                {% if task.person.institution %}
+                  <div class="institution">
+                    {{ task.person.institution }}
+                  </div>
+                {% endif %}
+
+              </div>
+
+            </div>
+          {% endif %}
+
+        </div>
+
+      </a>
+
+    {% endif %}
+  {% endfor %}
+
+</div>
 </section>

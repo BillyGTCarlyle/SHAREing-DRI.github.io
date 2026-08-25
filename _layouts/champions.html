@@ -102,12 +102,15 @@ layout: default
           <div class="profile-meta">
 
             {% if page.person.name %}
-            
-                  
-             <a href="{{ page.person.link }}">
-                {{ page.person.name }}
-              </a>
-
+              {% if page.person.link %}
+                <a href="{{ page.person.link }}">
+                  {{ page.person.name }}
+                </a>
+              {% else %}
+                <div class="profile-name">
+                  {{ page.person.name }}
+                </div>
+              {% endif %}
             {% endif %}
             
 
@@ -634,6 +637,12 @@ layout: default
     margin: 0;
     letter-spacing: 0.01em;
   }
+
+  .profile-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #101828;
+}
 
 
 @media (max-width: 950px) {
