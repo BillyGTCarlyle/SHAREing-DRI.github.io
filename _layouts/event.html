@@ -2,40 +2,160 @@
 layout: default
 ---
 
-{% if page.start_date %}
-  {% assign from_date = page.start_date | date: "%e %B %Y" %}  
-  {% assign to_date = page.date | date: "%e %B %Y" %}  
-{% else %}
-  {% assign from_date = page.date | date: "%H:%M %e %B %Y" %}  
-{% endif %}
+<main id="main" class="main-content event-page" aria-label="Event">
 
-<main id="main" class="main-content layout--single wide" aria-label="Content">
- {% include event-sidebar.html %}
-  <article class="page">
-    <div class="page__inner-wrap">
-<header class="page-header">
+  <!-- Event Header -->
+  <header class="event-header">
 
-  {% if page.event_image %}
-  <img src="{{ page.event_image | relative_url }}" ...>
-{% endif %}
-
-  {% assign title = page.title | markdownify | strip_html %}
-  <h1 id="page-title" class="page__title">{{ title }}</h1>
-
-</header>
-
-      
-      <div class="page__content">
-        <div class="e-content">
-          {{ content }}
-
-        </div>        
+    {% if page.image %}
+      <div
+        class="event-header-image"
+        style="background-image: url('{{ page.image | relative_url }}');"
+        aria-hidden="true">
       </div>
+    {% endif %}
+
+    <div class="event-header-overlay"></div>
+
+    <div class="event-header-content">
+
+      {% if page.project-type %}
+        <span class="event-badge">
+          {{ page.project-type }}
+        </span>
+      {% endif %}
+
+      <h1 class="event-title">
+        {{ page.title }}
+      </h1>
+
+      {% if page.summary %}
+        <p class="event-summary">
+          {{ page.summary }}
+        </p>
+      {% endif %}
+
     </div>
-  </article>
-   
+
+  </header>
+
+
+  <!-- Event Information -->
+  <section class="event-information" aria-label="Event information">
+
+    <div class="event-information-inner">
+
+      <!-- Date -->
+      {% if page.date %}
+
+        <div class="event-information-item">
+
+          <span class="event-information-icon" aria-hidden="true">
+            📅
+          </span>
+
+          <div class="event-information-content">
+
+            <span class="event-information-label">
+              Date
+            </span>
+
+            <span class="event-information-value">
+              {{ page.date | date: "%A, %e %B %Y" }}
+            </span>
+
+          </div>
+
+        </div>
+
+      {% endif %}
+
+
+      <!-- Location -->
+      {% if page.location %}
+
+        <div class="event-information-item">
+
+          <span class="event-information-icon" aria-hidden="true">
+            📍
+          </span>
+
+          <div class="event-information-content">
+
+            <span class="event-information-label">
+              Location
+            </span>
+
+            <span class="event-information-value">
+              {{ page.location }}
+            </span>
+
+          </div>
+
+        </div>
+
+      {% endif %}
+
+
+      <!-- Event Type -->
+      {% if page.project-type %}
+
+        <div class="event-information-item">
+
+          <span class="event-information-icon" aria-hidden="true">
+            ◉
+          </span>
+
+          <div class="event-information-content">
+
+            <span class="event-information-label">
+              Event type
+            </span>
+
+            <span class="event-information-value">
+              {{ page.project-type }}
+            </span>
+
+          </div>
+
+        </div>
+
+      {% endif %}
+
+
+      <!-- Event Link -->
+      {% if page.web-page %}
+
+        <div class="event-information-action">
+
+          <a
+            href="{{ page.web-page }}"
+            class="btn btn--event"
+            target="_blank"
+            rel="noopener noreferrer">
+            View event
+          </a>
+
+        </div>
+
+      {% endif %}
+
+    </div>
+
+  </section>
+
+
+  <!-- Event Content -->
+  <section class="event-main">
+
+    <article class="event-content">
+
+      {{ content }}
+
+    </article>
+
+  </section>
+
+
+
 </main>
-
-
-
-
