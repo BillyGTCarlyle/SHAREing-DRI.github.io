@@ -34,6 +34,25 @@ header:
 </div>
 
 
+<div class="news-card">
+  <div class="news-content">
+  
+    <span class="news-date">September 2026</span>
+    <h3>New SHAREing Tasks Funded</h3>
+    
+    <p>
+      We are pleased to announce the new tasks funded through the latest
+      SHAREing funding call, covering activities across our different
+      Work Packages. These tasks will help address priorities identified by
+      the UK DRI community and support the development of new skills,
+      resources and training. <a href="https://shareing-dri.github.io/tasks-in-progress/">Find out more about the
+      funded tasks here</a>.
+    </p>
+
+  </div>
+</div>
+
+
   
   <div class="news-card">
   <div class="news-content">
@@ -52,6 +71,16 @@ header:
 
 
 
+
+     
+
+     
+
+      
+    
+   <details class="past-news">
+    <summary>Past news</summary>
+
        <div class="news-card">
   <div class="news-content">
   
@@ -64,21 +93,6 @@ header:
 </p>
   </div>
 </div>  
-
-
-  
- 
-
-
-   
-     
-
-     
-
-      
-    
-   <details class="past-news">
-    <summary>Past news</summary>
 
 
      <div class="news-card">
