@@ -57,6 +57,12 @@ some resources to consider in future benchmarking.
 
 # Getting started
 
+The aim of getting started with benchmarking is essentially choosing the
+software to benchmark with the hardware to benchmark on, and then document in
+detail the steps needed to get the benchmark built and running. This is
+particularly important as there are many variables in these steps which can
+impact performance. We must remember: **documentation is key!**
+
 ## 1. The code
 
 To get started, we need a benchmark. If you are working on a code that does not
@@ -162,16 +168,47 @@ benchmarking, comparison is key. Saving our total runtime and any other metrics.
 ## 8. Scaling
 
 A common aspect of benchmarking is scaling, i.e., exploring how runtime and
-other metrics vary with core count.
+other metrics vary with core count. We briefly look over the two predominant
+forms of scaling: strong and weak.
 
 ### Strong scaling
 
-Increasing core count for fixed problem size.
+Put simply, strong scaling is increasing core count for fixed problem size. In
+an ideal case, doubling the core count should half the runtime. In reality this
+is never true for many reasons, not least because applications tend to have a
+serial portion which will retain fixed for increasing core counters. 
+
+A simple way of producing a strong scaling analysis for an MPI application is
+```bash
+for i in {1..128}
+do
+  /usr/bin/time mpirun -n $i ./code
+done
+```
+By default this will print timing data to standard output, so we can pipe this
+data simply into a `*.csv` file and generate strong scaling plots. 
 
 ### Weak scaling
 
-Increasing core count with increasing problem size, so the work per core stays
-(in theory) approximately constant.
+In short, weak scaling is increasing core count with increasing problem size,
+so the work per core stays (in theory) approximately constant.
+
+We can automate this as for strong scaling by iteratively allocating more and
+more cores, however, we need to equally scale up the problem size. This could
+be something like the following
+```bash
+for i in {1 2 4 8}
+do
+  /usr/bin/time mpirun -n $i ./code --input file_$i.dat
+done
+```
+we where are doubling the core count each at iteration, and are supplying an
+input file which doubles the problem size.
+
+There is a difficult with weak scaling and that is how does the problem scale?
+If the problem scales linearly then doubling a scaling parameter, e.g., the
+number of grid points for the problem is simple. However, many problems may
+scale logarithmically and so greater care has to be taken.
 
 ## 9. Placement
 
@@ -196,6 +233,39 @@ bandwidth or NUMA behaviour scales.
 
 # Supporting materials
 
-Drop links here
+We list below further materials to help in your future benchmarking!
+
+## SHAREing
+
+This blog has given just an introduction to some benchmarking concepts and as
+part of SHAREing we are building a performance assessment of which benchmarking
+forms the basis. To get started in following SHAREing's performance
+methodology, we have GitHub hosted
+[templates](https://github.com/SHAREing-DRI/assessment-template) for our
+[pre-assessment](https://github.com/SHAREing-DRI/assessment-template/blob/main/pre-assessment-report.md)
+and [high-level
+assessment](https://github.com/SHAREing-DRI/assessment-template/blob/main/high-level-report.md)
+which covers much of the topics covered here. More detail can be found in the
+[SHAREing performance assessment
+guidebook](/assets/pdfs/perf_analysis_workbook_brief.pdf).
+
+## Reproducible and automated benchmarking
+
+Likewise, for automating benchmarking consider looking into
+[Reframe](https://reframe-hpc.readthedocs.io/en/stable/) or
+[JUBE](https://apps.fz-juelich.de/jsc/jube/docu/index.html). This can help
+automate benchmarking workflows to aggregate together statistics. A paper by
+the ExCALIBUR project on automated and reproducible benchmarking practices can
+be found [here](https://doi.org/10.1145/3624062.3624133). If benchmarking is to
+become a feature of your research outputs, then there is a useful paper on
+benchmarking best practice particularly in reporting results linked
+[here](https://doi.org/10.1145/2807591.2807644).
+
+## HPC Wiki
+
+Finally, a useful resource for many concepts in HPC is the [HPC
+Wiki](https://hpc-wiki.info/hpc/HPC_Wiki) which presents useful overviews of
+concepts and workflows in both benchmarking and scaling analysis, linked
+[here](https://hpc-wiki.info/hpc/Benchmarking).
 
 ---
