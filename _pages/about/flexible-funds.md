@@ -315,7 +315,7 @@ Digital Research Infrastructure Programme.
 
   <p>
    This Hub will administer flexible funding for identified work across 4 work packages. 
-Individual awards will typically be in the range £5,000 - £25,000, with the total fund across the project at £1.6m.
+Individual awards will typically be in the range £5,000 - £50,000, with the total fund across the project at £1.6m.
   </p>
   
   <p>
@@ -423,14 +423,14 @@ Applications will be assessed based on:
     <tr>
       <td>In-depth assessments of research codes</td>
       <td>Up to 10 case studies</td>
-      <td>£15,000</td>
+      <td>£25,000</td>
     </tr>
     <tr>
       <td>
        Creation of learning material (preferred e-learning) and development of methodologies/workflows
       </td>
       <td>6–10</td>
-      <td>£25,000</td>
+      <td>£50,000</td>
     </tr>
   </tbody>
 </table>
