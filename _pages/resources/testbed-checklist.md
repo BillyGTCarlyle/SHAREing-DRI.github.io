@@ -7,7 +7,13 @@ classes: wide
 
 # Hardware Testbed Checklist
 
-## Purpose
+Many universities in the UK host HPC testbeds and test nodes within their organisation.
+System descriptions are not currently standardised, leading to varying levels of detail in testbed documentation.
+
+This page provides a checklist of information to be provided, where possible, such that users may clearly understand: 
+- What the hardware is
+- What it's for
+- How to use it
 
 ## Checklist
 
