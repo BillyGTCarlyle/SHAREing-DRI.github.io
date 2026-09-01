@@ -14,7 +14,7 @@ author_image: "/assets/profilepics/thomas.jpg"
 # Main post image
 hero_image: "/assets/images/stopwatch.jpg"
 # Date of the post, please use the format: YYYY/MM/DD
-date: 2026-08-28 # CHANGE!
+date: 2026-09-01 # CHANGE!
 social_links:
   - title: LinkedIn
     url: "https://www.linkedin.com/company/shareing/"
@@ -24,21 +24,25 @@ social_links:
     url: "mailto:shareing@durham.ac.uk"
 ---
 
-Benchmarking can sound simple: run a code, measure how long it takes. However,
-this approach hides a lot of nuance. It can be very easy to report benchmarking
+Benchmarking can sound simple: run a code and measure how long it takes.
+However, a lot of nuance is hidden. It can be very easy to report benchmarking
 results which are unreliable or sell a narrative. We want our benchmarking to
 run like clean, reproducible experiments wherever possible.
 
-In this blog we run through some basic steps to get started with benchmarking,
-and signpost some resources to consider in future benchmarking.
+In this blog we run through some basic steps to get started with running
+benchmarks, and signpost some resources and concepts to consider in future
+benchmarking.
 
 # Getting started
 
 The aim of getting started with benchmarking is essentially choosing the
-software to benchmark with the hardware to benchmark on, and then document in
+software to run along with the hardware to benchmark on, and then document in
 detail the steps needed to get the benchmark built and running. This is
 particularly important as there are many variables in these steps which can
-impact performance. We must remember: **documentation is key!**
+impact performance. **Documentation is key!** We recommend just a simple
+Markdown file, such as our pre-assessment template hosted
+[here](https://github.com/SHAREing-DRI/assessment-template/blob/main/pre-assessment-report.md)
+which can be modified to suite the analyst's needs.
 
 ## 1. The code
 
@@ -47,9 +51,31 @@ not currently ship with any benchmarks, SHAREing has written up some basic
 guidelines on how to write a representative benchmark which we link
 [here](/assets/pdfs/shareing-benchmark-guide.pdf).
 
-There are different types of benchmarks such as microbenchmarks, synthetic and
-application benchmarks. Microbenchmarks are typically very small code blocks
-that can be used to measure low-level performance...
+There are different types of benchmarks such as synthetic and application
+benchmarks. Synthetic benchmarks are typically software that is designed to
+stress a component of the hardware. One of the most famous is the
+[STREAM](https://www.cs.virginia.edu/stream/ref.html) benchmark which
+implements a handful of small compute kernels that do simple operations such as
+copying the elements of one array to another. These kernels are so
+computationally light that the only major bottleneck is memory bandwidth, i.e.,
+the rate of reading and writing data from and to main memory. Hence, STREAM is
+used as a way of measuring the typical memory bandwith of a CPU or GPU.
+
+We also have application benchmarks which are typically small examples of a
+much bigger application software. For example, QMCPACK is a large quantum Monte
+Carlo code used in domains such as material science. The QMCPACK developers
+also produce miniQMC which is a smaller version that includes some of the
+computational kernels of QMCPACK but with a much shorter runtime. So we can use
+miniQMC as a representative benchmark of the larger performance of QMCPACK.
+
+Having a suite of benchmarks with a performance-critical code, as is common in
+scientific computing, is a really useful way to check for any performance hits
+introduced during software development.
+
+Finally, once we have chosen our code and benchmarks, it is best to use an
+archived version of the code, e.g., using a tagged branch of the code.
+Otherwise, if we clone the code that lives on the main branch of the
+repository, then the code may change significantly during our benchmarking.
 
 ## 2. Hardware
 
@@ -57,7 +83,7 @@ Hardware is a vital part of benchmarking. When beginning, pick hardware that
 you are interested in. This might be a system that you often use, or you might
 have in mind a hardware comparison. For example, you may be using a local
 institutional cluster but have in mind using a regional or national cluster.
-Hardware details can often be found on cluster documentation, so make a note of
+Hardware details can often be found in cluster documentation, so make a note of
 what you plan to use. If you are interested in trying hardware that you
 currently do not have access to, look into whether this is available through
 testbeds. For more information on available testbeds, please see the testbeds
@@ -69,23 +95,26 @@ is listed on the documentation. For more information we can use tools such as
 ```bash
 likwid-topology
 ``` 
-and MAQAO, or files such as 
+and [MAQAO](https://www.maqao.org/), or system files such as 
 ```bash
 less /proc/cpuinfo
 ``` 
 on Linux systems.  However, these outputs are typically very detailed and go
 far beyond the data often used in simple hardware comparisons for benchmarking.
 Some example values, given by `likwid-topology` are core counts, cache sizes
-and NUMA domains.
+and NUMA domains. We might want to come back to these hardware details later
+when we can consider more indepth benchmarking, but for now just noting the
+hardware name - e.g., Nvidia Grace-Hopper (GH200) - is sufficient
 
 ## 3. Software dependencies
 
-As with hardware a code's software dependencies can impact performance, and so
-what we recommend with all of this is document. We want our benchmarking to be
-as reproducible as possible, so we document on a specific system any specific
-software. For example, note down compilers, libraries and version numbers.
+As with hardware, a code's software dependencies can impact performance, and so
+what we recommend with all of this is to **document**. We want our benchmarking
+to be as reproducible as possible, so we document on a specific system any
+specific software. For example, note down compilers, libraries and version
+numbers.
 
-On a cluster we can just note down the dependencies using the 
+On a cluster we can list our loaded software dependencies using
 ```bash
 module list
 ```
@@ -96,12 +125,13 @@ go into detail on this tool here.
 
 ## 4. Build
 
-We just simply follow and document the build steps. This may include typical
+To begin our first benchmarking run, we almost want to not thing. We just
+simply follow and document the build steps. This should include typical
 compiler flags used in the production code. Build steps are a classic example
-of a step where the configuration can change code performance, so we just
+of a step in which the configuration can change code performance, so we just
 simply note down what we begin with. Then, once we have begun to collate
 results, we can see about whether there are different compilation options we
-can use, and then compare software performance.
+can use.
 
 ## 5. Run
 
@@ -115,27 +145,36 @@ On a SLURM based system we can use
 ```bash
 sacct -j <job-number> --format=elapsed,maxRSS
 ```
-to give the total runtime (`elapsed`) and the memory footprint (`maxRSS`). 
+to give the total runtime (`elapsed`) and the memory footprint (`maxRSS`), once
+the code has completed.
 
 Alternatively, we can time an application using `/usr/bin/time` which is a
-standardised tool on Linux (it is recommended to avoid just using `time`), and
-then reading off the `real` time from this output. Then for total memory usage,
-on most Linux systems we have access to the `valgrind` tool which is used in
-detecting memory leaks, etc.
+standardised tool on Linux (it is recommended to avoid just using `time` as
+this is not standardised across distributions of Linux), and then reading off
+the `real` time from this output. Then for total memory usage, on most Linux
+systems we have access to the `valgrind` tool which is used in detecting memory
+leaks, etc.
 ```bash
 valgrind --tool=massif ./code
 ```
 
 We note these results for future reference, but we now have some representative
-results for how our code performs. We can use this in different ways:
-1. Hardware comparisons - we can repeat this across different hardware
-   platforms
-2. Tweak resource allocations - how do we configure the parallel resources, or
-   change our job scripts
-3. Software engineering and optimisation - what if we change something in the
-   code
-4. Varying dependencies - we might change compiler and libraries
-5. Many more...
+results for how our code performs.  We can use this data in different ways to
+inform further benchmarking analyses:
+1. **Tweak resource allocations** - we can compare how we configure our job
+   scripts or allocate our parallel resources
+2. **Hardware comparisons** - we can repeat our measurements across different
+   hardware platforms, to investigate performance changes and see whether
+certain hardware suits our code better 
+3. **Software engineering and optimisation** - if we change something in the
+   code, do we know how this changes the performance of the code?
+4. **Varying dependencies** - we can compare how different libraries or
+   compilers may impact performance. For example, we may use some mathematical
+libraries, when there are vendor-optimised libraries available, so we can do
+benchmarking comparisons.
+5. And much more! There are so many variables in software development when it
+   comes to performance, but starting to benchmark allows you to understand
+your code and the system more intimately.
 
 We will touch on some of these ideas below.
 
@@ -145,149 +184,80 @@ Now that we have documented our hardware, software and basic workflows for
 building and running the benchmark, we can then consider what other controls we
 have at our disposal.
 
-## 6. Compiler optimisations
-
-As mentioned above, build steps are an aspect of benchmarking that can have
-significant effects on performance. Some hardware may have advanced
-instructions that can be exploited via compiler flags. 
-
-There is vast documentation online for compilers and their flags, often with
-pages dedicated to optimisation flags. Similarly, tools like
-[MAQAO](https://www.maqao.org/) can suggest compiler flags that can exploit
-hardware features. As with all aspects of benchmarking, comparison is key.
-
-One feature of MAQAO which can help here is its **compare reports** feature. We
-can create a simple workflow of running an individual benchmark for each
-compiler optimisation we may be exploring with MAQAO. Then, we can collect
-these different runs together to explore how the different compiler
-optimisations vary the runtime and more detail performance features of the
-code. This can become a very detailed form of analysis, so we leave it to the
-reader to explore MAQAO in further detail.
-
-## 7. Affinity
+## 6. Affinity and placement
 
 As we have discussed, restricting any variables that we have control over is
-always desirable. For parallel applications we have the common issue of
-affinity: OpenMP threads and MPI ranks can wander, i.e., they can change the
-physical core that they are assigned to which can then create performance
-inefficiencies as data then needs to be moved in memory.
+always desirable when benchmarking. For parallel applications we have the
+common issue of affinity: OpenMP threads and MPI ranks can change the physical
+core that they are assigned to which can then create performance inefficiencies
+as data then needs to be moved in memory from near the previous core to the new
+core. Where possible we want to restrict this - frequently referred to as
+*pinning* - and have as near to 100% affinity as possible.
 
-There are different ways of **pinning** our processes and we will look at a few
-examples here.
+Often when wanting to restrict affinity, we also can make the decision of
+*which* cores our threads and/or ranks are to. For parallel applications this
+can mean we have choices about where threads, ranks, etc. are placed. For
+example, where do we assign ranks for a GPU-aware MPI application. Convention
+dictates one rank per GPU, but what about if we have an OpenMP+MPI application.
+Do we place a rank per [NUMA](https://hpc-wiki.info/hpc/NUMA) domain? Or
+[socket](https://hpc-wiki.info/hpc/HPC-Dictionary#Socket)? Or
+[node](https://hpc-wiki.info/hpc/HPC-Dictionary#Node)? There is no obvious
+answer to these questions, but benchmarking allows us to analyse these options.
+We can design our experiments to look into different methods of placing our
+processors.
 
-### OpenMP
+One example of the impacts placement can have is that for some compute-bound
+codes, close processor placement can be beneficial. Yet, for a code that is
+memory-bound it can be useful to place cores across different NUMA domains so
+they can exploit greater memory bandwidth across different memory regions.
+However, if memory needs to frequently be accessed  across NUMA domains this
+creates performance issues.
 
-With the OpenMP library we can set environment variables to control out thread
-affinity. The two primaru environment variables are `OMP_PLACES` and
-`OMP_PROC_BIND`. The `OMP_PLACES` specifies the location of the threads, whilst
-`OMP_PROC_BIND` specifies how these threads are bound to these locations. This
-is easier to see in practice
+So how do we fix affinity and choose our placement? Well for threads in an
+OpenMP application we can use we can set environment variables `OMP_PLACES` to
+specify thread locations and `OMP_PROC_BIND` to specify how our threads are
+bound to these locations. This is easier to see in practice
 ```bash
 export OMP_PLACES=core
 export OMP_PROC_BIND=close
 ```
 will bind threads to physical cores, and will ensure that these are cores are
 close to one another, i.e., typically filling them out in logical order. So for
-a four thread application this will likely bind to cores labelled 0-3. We will
-look at this further below, but often when specifying thread affinity it is
-often good practice to state which the location threads should be pinned to.
+a four thread application this will likely bind to cores labelled 0-3.
 
-We can also place threads by `socket` and `thread` rather than `core` as above
-for `OMP_PLACES`. We can specify binding to off or on by the following
-```bash
-export OMP_PROC_BIND=false
-export OMP_PROC_BIND=true
-```
-respectively. Rather than closely packed we can spread them out with
-`OMP_PROC_BIND=spread` or allocate them to the master thread with
-`OMP_PROC_BIND=master`. There are multiple options, but the main aim here is
-fix affinity, we will touch on thread placement in subsequent sections.
-
-### MPI
-
-We can often control MPI rank pinning through the `mpirun` command. There can
-be slight variations in MPI libraries, so it always worth checking
-documentation, but taking OpenMPI as an example we can bind to cores, sockets,
-NUMA domains, etc. using 
-```bash
-mpirun -n 16 --bind-to <foo>
-```
-where `<foo>` can take: `slot`, `hwthread`, `core`, `l1cache`, `l2cache`,
-`l3cache`, `socket`, `numa`, `board`, `cpu-list`, and `none`. This defaults to
-`core` which for applications will be suitable, but against varying these
-bindings can prove useful for tuning the runtime of certain applications.
-Alternatively, there are also `--bind-to-core` and `--bind-to-socket` flags.
-
-### LIKWID
-
-The [LIKWID tool suite](https://github.com/RRZE-HPC/likwid) also gives us an
-interface to select cores to pin too:
+With MPI this can often be trickier as it can depend on the implementation of
+MPI, how the system is configured, and so it can vary system to system. So
+whilst we can handle our OpenMP thread affinity with environment variables, we
+recommend The [LIKWID tool suite](https://github.com/RRZE-HPC/likwid) which
+gives us an easy-to-use interface to select cores to pin too:
 ```bash
 likwid-pin -c 0-3 ./code
 ```
+and LIKWID also gives us more explicit notation to state the cores by domains,
+e.g., 16 cores on a node in logical order could be
+```bash
+likwid-pin -c N:0-15 ./code
+```
+or if we have a dual-socket node, it could be 16 cores split across two sockets
+```bash
+likwid-pin -c S0:0-7@S1:8-15
+```
+Therefore, we can be very specific in our placement with this syntax. To
+understand the locations of these cores, please see the output of
+`likwid-topology` which will explain all of the domains available to you and
+related cores.
+
 For an MPI or hybrid parallel application we can also use
 ```bash
 likwid-mpirun -np 4 ./code
 ```
 and as with `likwid-pin` we can be specific in the physical cores we wish to
-pin our ranks and threads to. Once more, we simply signpost LIKWID here as a
-tool that is incredibly useful in performance-oriented software development.
+pin our ranks and threads to but we recommend referring to the [LIKWID
+Wiki](https://github.com/RRZE-HPC/likwid/wiki/Likwid-Mpirun) for further
+details. Once more, we simply signpost LIKWID here as a tool that is incredibly
+useful in performance-oriented software development.
 
-## 8. Placement
-
-For parallel applications we often can have choices about where threads, ranks,
-etc. are placed. For example, where do we assign ranks for a GPU-aware MPI
-application. Convention dictates one rank per GPU, but what about if we have an
-OpenMP+MPI application. Do we place a rank per NUMA domain? Or socket? Or node?
-There is no obvious answer to these questions, but benchmarking can hold the
-key. We can design our experiments to look into different methods of placing
-our processors.
-
-One example is that for some compute-bound codes, close processor placement can
-be beneficial. Yet, for a code that is memory-bound it can be useful to place
-cores across different NUMA domains so they can exploit greater memory
-bandwidth across different memory regions.
-
-### OpenMP
-
-We saw how with the `OMP_PLACES` and `OMP_PROC_BIND` flags how we can specify
-the locations and affinity of threads on hardware. We can be even more exact
-with thread placement by specifying the physical core IDs
-```bash
-OMP_PLACES="{0,1,2,3},{4,5,6,7},{8,9,10,11},..."
-```
-We can also verify the thread affinity and placement with
-```bash
-export OMP_DISPLAY_AFFINITY=TRUE
-```
-which prints the pinning at runtime.
-
-### MPI
-
-We can be very specific to list the processor IDs using
-```bash
-mpirun --cpu-list "0,1,2,4"
-```
-which can also be fed as an argument to the `--bind-to` flag. Similarly, we
-might want to allocate ranks in a round robin fashion e.g., by socket so that
-the cores can be spread out across the available sockets. To do this we use
-```bash
-mpirun --map-by <foo>
-```
-where `<foo>` can take many values: `slot`, `hwthread`, `core`, `L1cache`,
-`L2cache`, `L3cache`, `socket`, `numa`, `board`, `node`, `sequential`,
-`distance`, and `ppr`. Many of these naming conventions are intuitive, however,
-care needs to be taken....
-
-### LIKWID
-
-We have already seen with `likwid-pin` and `likwid-mpirun` that we have a high
-degree of control with the thread and rank placement, and so this can be a
-quicker way to test and configure different pinning and placement schemes.
-
-LIKWID allows for specifying cores by node, socket, NUMA domain, etc.
-
-## 9. Scaling
+## 7. Scaling
 
 A common aspect of benchmarking is scaling, i.e., exploring how runtime and
 other metrics vary with core count. We briefly look over the two predominant
@@ -308,7 +278,17 @@ do
 done
 ```
 By default this will print timing data to standard output, so we can pipe this
-data simply into a `*.csv` file and generate strong scaling plots. 
+data simply into a `*.csv` file and generate runtime plots. Often though,
+simply reporting the runtime as a function of core count is not the most useful
+data. It can be useful to calculate the **speedup** relative to the single core
+run, **S(p) = t(1)/t(p)**, and parallel **efficiency**, **E(p) = S(p)/p**.
+
+Thus, using these two metrics we can understand the core counts at which the
+code inefficiently uses the available parallelism. We can therefore use this
+to: tailor our job scripts to request a core count which efficiently uses the
+cores, without requesting too many; or, if the inefficiency is a significant
+issue then we can use this as a starting point for more indepth performance
+analysis.
 
 ### Weak scaling
 
@@ -325,25 +305,56 @@ do
 done
 ```
 we where are doubling the core count each at iteration, and are supplying an
-input file which doubles the problem size.
+input file which doubles the problem size. In an ideal case with total parallel
+coverage, the runtime will remain exactly constant for each core count.
+However, in reality it is useful to study the parallel efficiency, **E(p) =
+t(1)/t(p)**.
 
 There is a difficult with weak scaling and that is how does the problem scale?
 If the problem scales linearly then doubling a scaling parameter, e.g., the
 number of grid points for the problem is simple. However, many problems may
 scale logarithmically and so greater care has to be taken.
 
-## 10. Metrics
+**Scaling with LIKWID:** quite simply we can also include `likwid-pin` in our
+workflows above to include pinning and placement in our scaling analyses.
 
-Above we have seen several variables we can explore from affinity to placement
-to scaling. In all of this, our observable is total runtim which can then use
-to look at speeds up in scaling analyses. However, there are other metrics we
-can use. For example, we might want to explore domain specific metrics.
-It can be really useful in defining a metric that is specific to an algorithm
-or code, e.g., for lattice-based methods, something like the 'number of lattice
-site updates' can be really useful for code specific performance metrics.
-Alternatively, we can repeat above methods but gather metrics from hardware
-counters using `likwid-perfctr`, then pairing with scaling analyses we can see
-how metrics such as memory bandwidth or NUMA behaviour scales.
+## 8. Compiler optimisations
+
+As mentioned above, build steps are an aspect of benchmarking that can have
+significant effects on performance. Some hardware may have advanced instruction
+sets that can be exploited via compiler flags, so we may be able to get
+performance gains, without editing the source code through, e.g., further
+vectorsation. However, we always need to be skeptical during optimisation so
+we again run our benchmark experiments.
+
+There is vast documentation online for compilers and their flags, often with
+pages dedicated to optimisation flags. However, these documentation pages are
+typically not the easiest to navigate when starting out with compiler
+optimisations. Similarly, tools like [MAQAO](https://www.maqao.org/) can
+suggest compiler flags that can exploit hardware features we recommend as an
+easier place to start with identifying compiler optimisations.
+
+One feature of MAQAO which can help here is its **compare reports** feature. We
+can create a simple workflow of running an individual benchmark for each
+compiler optimisation we may be exploring with MAQAO. Then, we can collect
+these different runs together to explore how the different compiler
+optimisations vary the runtime and more detailed performance features of the
+code. This can become a very detailed form of analysis, so we leave it to the
+reader to explore MAQAO in further detail.
+
+## 9. Metrics
+
+Above we have looked at several variables to explore in benchmarking, from
+affinity to placement to scaling. In all of this, our observable is total
+runtime which we can then use to look at speedup and efficiency in scaling
+analyses. However, there are other metrics we can use. For example, we might
+want to explore domain specific metrics. It can be really useful in defining a
+metric that is specific to an algorithm or code, e.g., in lattice-based
+methods, something like the 'number of lattice site updates' can be really
+useful for code specific performance metrics. Alternatively, we can repeat
+above methods but gather metrics from hardware counters using `likwid-perfctr`,
+then, paired with scaling analyses, we can measure how metrics such as memory
+bandwidth or compute rate scales.
 
 For more information, please see the [`likwid-perfctr` documentation on the
 LIKWID Wiki](https://github.com/RRZE-HPC/likwid/wiki/likwid-perfctr) but here
