@@ -21,19 +21,19 @@ This page provides a checklist of information to be provided, where possible, su
 
 Detailed description, including:
 - [ ] Background (if any)
-- [ ] Primary purpose / intended use-case
+- [ ] **Primary purpose / intended use-case**
 
 ### Specifications
-- [ ] Detailed specs
+- [ ] **Detailed specs**
     - Host:
-        - [ ] Number of nodes available
-        - [ ] Number of processors/accelerators per node
-        - [ ] RAM per node
+        - [ ] **Number of nodes available**
+        - [ ] **Number of processors/accelerators per node**
+        - [ ] **RAM per node**
         - [ ] Network fabric used
     - Hardware:
-        - [ ] Accelerator memory
+        - [ ] **Total memory**
         - [ ] Chip architecture (CPU and accelerator if applicable)
-        - [ ] Accelerator cores (CUs, CUDA cores, Tensix cores, etc.)
+        - [ ] **Accelerator cores (CUs, CUDA cores, Tensix cores, etc.)**
         - [ ] Cache topology
             - [ ] Diagram
 
@@ -43,10 +43,10 @@ Detailed description, including:
 - [ ] Link to SHAREing testbed site
 
 ### Usage
-- [ ] Instructions for creating an account and gaining access
-- [ ] Scheduler partition to use
-- [ ] Direct SSH (if available)
-- [ ] Recommended compiler
+- [ ] **Instructions for creating an account and gaining access**
+- [ ] **Scheduler partition to use**
+- [ ] **Direct SSH (if available)**
+- [ ] **Recommended compiler**
 - [ ] Other compatible compilers
 - [ ] Recommended libraries or SDKs
 
