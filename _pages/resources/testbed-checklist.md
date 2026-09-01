@@ -15,13 +15,16 @@ This page provides a checklist of information to be provided, where possible, su
 - What it's for
 - How to use it
 
+When writing documentation for a hardware testbed, use the checklist as a guide.
+All items should be added if possible, items in bold are considered essential.
+
 ## Checklist
 
 ### Hardware name
 
 Detailed description, including:
-- [ ] Background (if any)
 - [ ] **Primary purpose / intended use-case**
+- [ ] Background (if any)
 
 ### Specifications
 - [ ] **Detailed specs**
@@ -32,8 +35,8 @@ Detailed description, including:
         - [ ] Network fabric used
     - Hardware:
         - [ ] **Total memory**
-        - [ ] Chip architecture (CPU and accelerator if applicable)
         - [ ] **Accelerator cores (CUs, CUDA cores, Tensix cores, etc.)**
+        - [ ] Chip architecture (CPU and accelerator if applicable)
         - [ ] Cache topology
             - [ ] Diagram
 
