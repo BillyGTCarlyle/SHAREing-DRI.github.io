@@ -66,7 +66,8 @@ Detailed description, including:
 
 ## Example cache diagram
 
-Below is an example cache topology diagram for the AMD MI300X
+Below is an example cache topology diagram for the AMD MI300X.
+
 Feel free to copy and adapt as you see fit.
 
 ```
