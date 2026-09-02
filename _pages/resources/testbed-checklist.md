@@ -89,8 +89,8 @@ Below is an example cache topology diagram for the AMD MI300X
 |              L2 4MB               |   
 |-----------------------------------|
 |               XCD      |          |
-|      |-----------------+-------|  |
-|      | Compute Unit    |       |  |
+|      |-------------------------|  |
+|      | Compute Unit            |  |
 |      ||---------------------|  |  |
 |      || L1 instruction 64KB |  |  |
 | 38 x ||---------------------|  |  |   (38 CUs per XCD.  L1 instruction cache
