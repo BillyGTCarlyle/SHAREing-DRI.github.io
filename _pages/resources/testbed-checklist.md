@@ -43,13 +43,17 @@ Detailed description, including:
 - [ ] Benchmarks
     - [ ] Memory bandwidth (Stream or BabelStream)
 
-- [ ] Link to SHAREing testbed site
+- [ ] Resource links
+    - [ ] **Manufacturer's website**
+    - [ ] Training materials
+    - [ ] SHAREing testbed site
 
 ### Usage
 - [ ] **Instructions for creating an account and gaining access**
 - [ ] **Scheduler partition to use**
 - [ ] **Direct SSH (if available)**
 - [ ] **Recommended compiler**
+- [ ] Recommended profiler and debugger
 - [ ] Other compatible compilers
 - [ ] Recommended libraries or SDKs
 
@@ -63,6 +67,7 @@ Detailed description, including:
 ## Example cache diagram
 
 Below is an example cache topology diagram for the AMD MI300X
+Feel free to copy and adapt as you see fit.
 
 ```
 |--------------|     |--------------|
