@@ -59,3 +59,51 @@ Detailed description, including:
 
 ### Hints and tips
 - [ ] Scheduler notes (useful sbatch options)
+
+## Example cache diagram
+
+Below is an example cache topology diagram for the AMD MI300X
+
+```
+|--------------|     |--------------|
+|              |     |              |
+|    HBM3      |     |    HBM3      |   (8 stacks of 24GB = 192GB total HBM3)
+|    24GB      |     |    24GB      |
+|--------------|     |--------------|
+       |                    |
+|-----------------------------------|
+|       AMD INFINITY CACHE          |   (Global buffer for all XCDs)
+|              256 MB               |
+|-----------------------------------|
+  |                               |
+  |    --------        -------    |
+  |    |      |        |     |    |
+|---------|----|     |----|---------|
+|   XCD   | L2 |     | L2 |   XCD   |
+|         |    |     |    |         |   (4MB L2 per XCD)
+|         |4MB |     |4MB |         |
+|---------|----|     |----|---------|
+
+
+|-----------------------------------|
+|              L2 4MB               |   
+|-----------------------------------|
+|               XCD      |          |
+|      |-----------------+-------|  |
+|      | Compute Unit    |       |  |
+|      ||---------------------|  |  |
+|      || L1 instruction 64KB |  |  |
+| 38 x ||---------------------|  |  |   (38 CUs per XCD.  L1 instruction cache
+|      || L1 Constant 16KB    |  |  |   shared between pairs of CUs)
+|      ||---------------------|  |  |
+|      || L1 Data 32KB        |  |  |
+|      ||---------------------|  |  |
+|      || L1 Scalar 16KB      |  |  |
+|      ||---------------------|  |  |
+|      || LDS 64KB            |  |  |
+|      ||---------------------|  |  |
+|      |-------------------------|  |
+|                                   |
+|-----------------------------------|
+
+```
