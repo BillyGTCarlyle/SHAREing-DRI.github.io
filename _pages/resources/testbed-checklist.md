@@ -83,8 +83,12 @@ Below is an example cache topology diagram for the AMD MI300X
 |         |    |     |    |         |   (4MB L2 per XCD)
 |         |4MB |     |4MB |         |
 |---------|----|     |----|---------|
-
-
+      |
+      |
+ Detailed view
+      |
+      |
+      V
 |-----------------------------------|
 |              L2 4MB               |   
 |-----------------------------------|
